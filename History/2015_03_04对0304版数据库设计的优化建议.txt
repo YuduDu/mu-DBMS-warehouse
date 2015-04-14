@@ -1,0 +1,9 @@
+Onupdate and Ondelete 约束设置的问题
+1. Inbound 和 Outbound的 approver 作为staffs sid的外键， On delete no action (解决方案：？ 将approver 换成名字，不与staff相关联)
+2. 方案1：Set On delete cascade and set a trigger before delete the child row, copy it in a history table.
+
+当前表的可修改提议：
+1。 Inbound detail 和Outbound Detail 可以不要Inbound_d_id and Outbound_d_id当主键，而是用Inbound_id和Inbound_Iid 当组合主键。
+2. 入库统计表和出库统计表的设计再思考一下是否合理
+3. 是否将inner_transition 改为内部出库单和内部入库单？
+4. 是否将stock类细化为原料库存项，半成品库存项和成品库存项？

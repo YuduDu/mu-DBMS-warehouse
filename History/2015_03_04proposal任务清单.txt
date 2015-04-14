@@ -1,0 +1,8 @@
+任务清单：
+1. data collection 和 client information部分的撰写；徐春晖
+2. SQL文件的修改：基本上就是把里面每条语句里面数据库的约束删掉；杜玉都
+3. 10条queries 的relational algebra和sql的撰写:这个可以4个人分；杜明
+4. 每人工作内容计划和全组的周计划部分的安排和撰写；徐毅涵
+5. 每个人把自己的contribution写一下吧；：）
+
+
