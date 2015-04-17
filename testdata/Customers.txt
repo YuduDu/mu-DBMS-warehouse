@@ -1,0 +1,20 @@
+1	Katz	Debra Scott	6 Emmet Street		9-(755)613-8796	Midel	24786
+2	Twitterlist	Antonio Wheeler	958 Blackbird Lane		1-(724)006-3949	Feedspan	23950
+3	Latz	Raymond Cruz	68767 American Road		9-(397)869-1331	Topicblab	23313
+4	Aimbu	Lori West	7579 Merchant Trail		4-(729)424-9157	Eamia	20250
+5	Photobug	Michael Morales	7 Del Mar Park		3-(992)596-1655	Twitternation	23337
+6	Tazz	Jeremy Bishop	25446 Fordem Parkway	32505	3-(883)233-4201	Twiyo	24965
+7	Skiba	Shirley Woods	1 Hoard Crossing		4-(181)738-3728	Jabbercube	29937
+8	Npath	Kathryn Wheeler	883 Blackbird Plaza	6090-215	0-(169)915-9357	Jetpulse	27132
+9	Wikizz	Catherine Thomas	201 Wayridge Hill	33604 CEDEX	0-(492)465-6589	Kanoodle	26707
+10	Fanoodle	Amanda Wagner	037 Colorado Parkway		2-(608)664-7782	Brightdog	21226
+11	Bubblemix	Rachel Thompson	23238 Union Parkway		6-(984)104-1184	Dazzlesphere	21282
+12	Skaboo	Janice Black	186 Armistice Pass		3-(987)690-0820	Jabbersphere	23496
+13	Camimbo	Deborah Mccoy	05 Butterfield Park		8-(722)823-7160	Brainverse	25505
+14	Buzzshare	Michael Gordon	320 Nova Hill		7-(746)729-9465	Gabcube	20588
+15	Yodel	Irene Garcia	31526 Towne Plaza		0-(332)678-3799	Topdrive	26771
+16	Kaymbo	Doris Sanders	42 Prairieview Place	9285	5-(972)736-7736	Tagcat	22873
+17	Zoomdog	Christopher Phillips	711 Sutherland Park		2-(539)228-1816	Twimbo	28673
+18	Youspan	Katherine Fields	021 Lakeland Circle		8-(623)278-0897	Youspan	27439
+19	Buzzshare	Harold Long	39888 Vermont Alley		0-(982)374-7253	Gigabox	21264
+20	Riffpedia	Philip Pierce	02832 Canary Pass		8-(446)199-7607	Thoughtblab	28331
