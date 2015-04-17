@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS Inner_Trasition ;
 -- Table Customers
 
 CREATE TABLE IF NOT EXISTS Customers (
-  Cid INT NOT NULL AUTO_INCREMENT,--公司编号
-  Cname VARCHAR(50) NOT NULL, --公司名字
+  Cid INT NOT NULL AUTO_INCREMENT,
+  Cname VARCHAR(50) NOT NULL,
   Ccontact VARCHAR(50) NULL DEFAULT NULL,--
   Caddress VARCHAR(500) NULL DEFAULT NULL,
   Cpostcode CHAR(6) NULL DEFAULT NULL,
@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS Staffs (
   Sid INT NOT NULL AUTO_INCREMENT,
   Sname VARCHAR(20) NOT NULL,
   SCid INT NULL DEFAULT NULL,
+  Sphone VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (Sid),
   INDEX Scid_idx (SCid ASC),
   CONSTRAINT Staffs_SCid
@@ -149,6 +150,7 @@ CREATE TABLE IF NOT EXISTS Outbound_details (
   Amount FLOAT NULL DEFAULT NULL,
   Unit_price DECIMAL(10,2) NULL,
   Warehouse_Wid INT NOT NULL,
+  Outbound_Stockid INT NULL,
   PRIMARY KEY (Outbound_Iname, Outbound_id),
   INDEX Outbound_id_idx (Outbound_id ASC),
   INDEX Outbound_Iname_idx (Outbound_Iname ASC),
@@ -175,20 +177,13 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS Stock_collection (
   Remain_Amount FLOAT NOT NULL,
   Items_Iname VARCHAR(100) NOT NULL,
-  Wid INT NULL,
   PRIMARY KEY (Items_Iname),
   Minimum FLOAT NOT NULL,
   Maximum FLOAT NOT NULL,
   INDEX Stock_collection_Items1_idx (Items_Iname ASC),
-  INDEX Stock_collection_Wid_idx (Wid ASC),
   CONSTRAINT Stock_collection_Iname
     FOREIGN KEY (Items_Iname)
     REFERENCES Items (Iname)
-    ON DELETE NO ACTION
-    ON UPDATE CASCADE,
-  CONSTRAINT Stock_collection_Wid
-    FOREIGN KEY (Wid)
-    REFERENCES Warehouses (Wid)
     ON DELETE NO ACTION
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -299,6 +294,7 @@ CREATE TABLE IF NOT EXISTS Inbound_details (
   Amount FLOAT NULL DEFAULT NULL,
   Unit_Price DECIMAL(10,2) NULL DEFAULT NULL,
   Inbound_Stockid INT NULL,
+  Warehouse_Wid INT NULL,
   PRIMARY KEY (Inbound_id,Inbound_Iname),
   INDEX Inbound_idx (Inbound_id ASC),
   INDEX Iid_idx (Inbound_Iname ASC),
@@ -317,7 +313,12 @@ CREATE TABLE IF NOT EXISTS Inbound_details (
     FOREIGN KEY (Inbound_Stockid)
     REFERENCES Stocks (Stockid)
     ON DELETE SET NULL
-    ON UPDATE CASCADE)
+    ON UPDATE CASCADE,
+   CONSTRAINT Inbound_Warehouse_id
+   	FOREIGN KEY (Warehouse_Wid)
+  	REFERENCES Warehouses (Wid)
+  	ON DELETE NO ACTION
+  	ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 -- Table History_Stocks
@@ -336,12 +337,13 @@ ENGINE = InnoDB;
 -- Table Inner_Trasition
 
 CREATE TABLE IF NOT EXISTS Inner_Trasition (
-  Transitionid INT NOT NULL,
+  Transitionid INT NOT NULL AUTO_INCREMENT,
   I_T_Wid INT NOT NULL,
   Amount FLOAT NOT NULL,
   Items_Iname VARCHAR(100) NOT NULL,
   Operate CHAR(1) NULL,
-  Time DATETIME NULL,
+  Stockid INT NOT NULL,
+  Time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (Transitionid),
   INDEX fk_Inner_trasition_Products1_idx (Items_Iname ASC),
   INDEX I_T_Wid_idx (I_T_Wid ASC),
