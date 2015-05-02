@@ -11,7 +11,7 @@
 </head>
 <body id="app">
     <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
+      <div class="container-fluid" style="width: 1000px;margin: 0 auto;">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">仓储</a>
+        <a class="navbar-brand" href="?/dashboard/add">仓储</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,6 +41,18 @@
         <?php }?>
       </ul>
       <div class="viewDetail">
+          
+        <form class="form-inline" action="?/search/key" method="post" style="margin-bottom: 10px; <?php if(!$needSearch){echo 'display:none;';}?>">
+          <div class="form-group">
+            <label>搜索</label>
+            <input type="text" name="key" value="<?php if($needSearch && seg(3) == 's'){echo urldecode(seg(4));} ?>" class="form-control">
+            <input type="hidden" name="uri" value="<?php echo seg(1).'/'.seg(2);?>">
+          </div>
+          <div class="form-group">
+            <input class="btn btn-default" type="submit" value="搜索" name="search">
+          </div>
+        </form>
+
         <?php echo $al_content;?>
         <p style="color:red;margin-top:10px;">
           <?php foreach($err as $e=>$r) {

@@ -1,64 +1,38 @@
 <?php
 class account extends base{
   function __construct()
-  {  
-    parent::__construct();
-    global $app_id;
-    
-    $this->check();
-    $this->loadapp();
-    $this->m = load('m/bug_m');
-    $this->menu = array(
-      'index'=>'首页',
-      'bugs'=>'Bugs',
-      '../account'=>'帐号'
-     );
-  
-    $this->priority = array(
-    '1'=>'低',  
-    '2'=>'中',
-    '3'=>'高',
-    '4'=>'紧急',
-    '5'=>'严重'
-    );
-   
-    $this->app = load('m/app')->get($app_id);
-    if( $this->app['admin'] == $this->u['id'] ) $this->menu['sys'] ='设置';
-  }
-  
-  function index()
   {
-    $id = $this->u['id'];
-    
-    // update password 
-    $conf = array('password'=>'required|comparetopwd','repassword'=>'required');
-    $err = validate($conf);
-    if ( $err === TRUE) {
-      if(!load('m/user_m')->checkpwd($id,$_POST['oldpassword']))redirect(BASE.'account/','原密码错误');
-      $_POST['post_time'] = $_POST['update_time'] = time();
-      load('m/user_m')->update_user($id);
-      redirect(BASE.'account/','修改成功');
-    }
-    else if ( isset($_POST['email']) || isset($_POST['username'])) {
-      $_POST['post_time'] = $_POST['update_time'] = time();
-      load('m/user_m')->update($id);
-      redirect(BASE.'account','修改成功');
-    }
-    else {
-      $param['val'] = array_merge($_POST,load('m/user_m')->get($id)); 
-      $param['err'] = $err;
-      $this->display('v/user/add',$param);
-    }
-    
-    // update password 
-
-     
-    
+  	  parent::__construct(false);
+      $this->m = load('m/admin_m');
   }
-}
+  
+  function login()
+  {
+  	$msg = '';
+	if(isset($_POST['account_login'])){
+		$res = $this->m->admin_login($_POST['Username'],$_POST['Password']);
+		if (!empty($res)){
+			session_start();
+			$_SESSION['STOCK_USER'] = $res[0]['Username'];
+      $_SESSION['STOCK_Sid'] = $res[0]['Staffs_Sid'];
+			redirect('?/dashboard/notice');
+		}else{
+			$msg = '用户名或密码错误';
+		}
+	}
 
-function comparetopwd()
-{
-  if($_POST['password'] == $_POST['repassword']) return true;
-  return '两次输入的密码不一致';
+    view('v/account/login',array('msg'=>$msg));
+  }
+
+  function logout(){
+    session_start();
+    $_SESSION = array();
+    if (isset($_COOKIE[session_name()])) {
+         setcookie(session_name(), '', time()-42000, '/');
+    }
+    session_destroy();
+    redirect('?/account/login');
+  }
+
+
 }
