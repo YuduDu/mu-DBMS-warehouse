@@ -33,7 +33,7 @@ class warehouse extends base{
       'submitName'=>'warehouses_add', //提交按钮
       'required'=>array('Admin_id'),  //必填字段
       'addCondition'=>false, //排重条件
-      'addConditionMsg'=>'请勿重复添加',  //出现重复时，给出提示文字
+      'addConditionMsg'=>'The warehouse information already exist!',  //出现重复时，给出提示文字
       'addExcute'=>array('m'=>$this->m,'method'=>'warehouse_add'),  //执行添加
       'view'=>'v/warehouse/add'  //视图
     );
@@ -51,7 +51,7 @@ class warehouse extends base{
         $this->err = $err;
       }
       $up = $this->m->update(seg(4));
-      $this->msg = $up?'修改成功':'修改失败';
+      $this->msg = $up?'Succeed!':'Failed!';
     }
 
     $res = $this->m->get_one(seg(4));

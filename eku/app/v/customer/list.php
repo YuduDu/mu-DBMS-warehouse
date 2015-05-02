@@ -2,8 +2,8 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-        <th>客户编号</th>
-  			<th>客户公司名称</th>
+        <th>Customer Company Name</th>
+  			<th>Customer </th>
   			<th>客户联系人姓名</th>
         <th>客户地址</th>
         <th>客户邮编</th>

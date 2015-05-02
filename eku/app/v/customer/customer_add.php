@@ -1,30 +1,30 @@
 <form class="form-inline" method="post" action="">
   <div class="form-group">
-    <label>客户公司名称</label>
+    <label>Company Name</label>
     <input type="text" name="Cname" class="form-control">
   </div>
   <div class="form-group">
-    <label>客户联系人姓名</label>
+    <label>Company Contact Name</label>
     <input type="text" name="Ccontact" class="form-control">
   </div>
   <div class="form-group">
-    <label>客户地址</label>
+    <label>Company Address</label>
     <input type="text" name="Caddress" class="form-control">
   </div>
   <div class="form-group">
-    <label>客户邮编</label>
+    <label>Zip code</label>
     <input type="text" name="Cpostcode" class="form-control">
   </div>
   <div class="form-group">
-    <label>客户电话</label>
+    <label>Phone number</label>
     <input type="text" name="Cphone" class="form-control">
   </div>
   <div class="form-group">
-    <label>客户银行</label>
+    <label>Bank Name</label>
     <input type="text" name="Cbank" class="form-control">
   </div>
   <div class="form-group">
-    <label>客户银行账号</label>
+    <label>Bank Account</label>
     <input type="text" name="Caccount" class="form-control">
   </div>
   

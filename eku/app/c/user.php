@@ -9,9 +9,9 @@ class user extends base{
  
   function login()
   {
-    if(!is_email($_POST['email']))redirect(BASE,'email 输入错误');
+    if(!is_email($_POST['email']))redirect(BASE,'Wrong Username!');
     if( $this->m->login( $_POST['email'] , $_POST['password'] )){
-      redirect('?/store/','登录成功！','',3);
+      redirect('?/store/','Login Succeed!','',3);
       exit;
     }
     redirect(BASE,$this->m->login_err);
@@ -20,6 +20,6 @@ class user extends base{
   function logout()
   {
     $this->m->logout();
-    redirect(BASE,'退出登录！','',0);
+    redirect(BASE,'You can now log out!','',0);
   }
 }

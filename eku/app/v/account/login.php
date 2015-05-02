@@ -54,14 +54,14 @@
     <div class="container">
 
       <form class="form-signin"  method="POST"action=""  >
-        <h2 class="form-signin-heading" >仓储</h2>
-        <input type="text" value="" class="input-block-level" placeholder="Email address" name="Username" >
+        <h2 class="form-signin-heading" >Warehouse Management System</h2>
+        <input type="text" value="" class="input-block-level" placeholder="User name" name="Username" >
         <input type="password" value="" class="input-block-level" placeholder="Password" name="Password" >
         <!-- <label class="checkbox">
           <input type="checkbox" value="remember-me"> 记住我
         </label> -->
         <div class="form-group">
-          <button type="submit" name="account_login" class="btn btn-default">登录</button>
+          <button type="submit" name="account_login" class="btn btn-default">Log In</button>
         </div>
         <p><?php echo $msg;?></p>
       </form>

@@ -42,7 +42,7 @@ class base extends c{
 
     $this->menu = array(
           'dashboard'=>'Dashboard',
-          'stock'=>'Inbound/Outbound list',
+          'stock'=>'Inbound/Outbound',
           'item'=>'Items',
           'supplier'=>'Supplier',
           'customer'=>'Customer',

@@ -1,10 +1,10 @@
 <form class="form-inline" method="post" action="">
   <div class="form-group">
-    <label>客户公司名称</label>
+    <label>Customer Company Name</label>
     <input type="text" value="<?php echo $res['Cname'];?>" name="Cname" class="form-control">
   </div>
   <div class="form-group">
-    <label>客户联系人姓名</label>
+    <label>Customer Contact Name</label>
     <input type="text" name="Ccontact" value="<?php echo $res['Ccontact'];?>" class="form-control">
   </div>
   <div class="form-group">

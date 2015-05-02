@@ -118,7 +118,7 @@ class dashboard extends base{
         //var_dump($inbound);exit();
 
         if(!$inbound){
-          throw new Exception('未获取到入库详情数据',2);
+          throw new Exception('Please fill out all detailed information for Outbound',2);
         }
 
         //添加出库单
@@ -131,12 +131,12 @@ class dashboard extends base{
             //var_dump($post);exit(); 
             $res = $this->m->outbound_detail_add($post);
             if($res !== 0){
-              throw new Exception('添加出库单物品详情失败',2);
+              throw new Exception('Failed to create detailed Outbound record.',2);
             }else{
-              throw new Exception('出库成功',2);
+              throw new Exception('Outbound Succeed!',2);
             }
         }else if($newBound) {
-          throw new Exception('添加出库单失败',2);
+          throw new Exception('Failed to create Outbound record!',2);
         }
 
 
@@ -164,13 +164,13 @@ class dashboard extends base{
           $err = validate($conf);
           if ( $err !== TRUE ) {
               $errArr = $err;
-              throw new Exception('内部流转参数不完整',1);
+              throw new Exception('Please fill out all information need for Inner Trasition!',1);
           }else{
               $inner = $this->m->inner_trasition_add();
               if($inner){
-                throw new Exception('内部流转成功',2);
+                throw new Exception('Inner Trasition Succeed!',2);
               }else{
-                throw new Exception('内部流转失败',2);
+                throw new Exception('Inner Trasition Failed!',2);
               }
           }
       } catch (Exception $e){

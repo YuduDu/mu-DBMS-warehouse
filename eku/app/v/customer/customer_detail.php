@@ -1,16 +1,16 @@
-<h4>客户基本信息</h4>
+<h4>Customer Information</h4>
 <div class="table-responsive">
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-        	<th>客户编号</th>
-  			<th>客户公司名称</th>
-  			<th>客户联系人姓名</th>
-        	<th>客户地址</th>
-        	<th>客户邮编</th>
-        	<th>客户电话</th>
-        	<th>客户银行</th>
-        	<th>客户银行账号</th>        
+        	<th>ID</th>
+  			<th>Comapny Name</th>
+  			<th>Comany Contact Name</th>
+        	<th>Company Address</th>
+        	<th>Zip code</th>
+        	<th>Phone</th>
+        	<th>Bank Name</th>
+        	<th>Bank Account</th>        
   		</tr>
       </thead>
       <tbody>
@@ -28,15 +28,15 @@
   </table>
 </div>
 
-<h4>客户的出货单统计</h4>
+<h4>Outbound Order Statistic</h4>
 <div class="table-responsive">
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>供应商编号</th>
-        <th>入库单创建时间</th>
-        <th>交易金额</th>
-        <th>入库单编号</th>
+        <th>Supplier ID</th>
+        <th>Outbound Create Time</th>
+        <th>Amount of Money</th>
+        <th>Outbound ID</th>
       </tr>
       </thead>
       <tbody>
@@ -45,7 +45,7 @@
         <td><?php echo $v['Cid'];?></td>
         <td><?php echo $v['CreateTime'];?></td>
         <td><?php echo $v['Money'];?></td>
-        <td><?php echo $v['CreateTime'];?></td>
+        <td><?php echo $v['Outbound_id'];?></td>
       </tr>
       <?php }?>
       </tbody>
