@@ -10,8 +10,8 @@
         <th>供应商电话</th>
         <th>供应商银行</th>
         <th>供应商银行地址</th>        
-  			<th>查看</th>
-        <th>编辑</th>
+  			<th style="width:48px">查看</th>
+        <th style="width:48px">编辑</th>
   		</tr>
       </thead>
       <tbody>

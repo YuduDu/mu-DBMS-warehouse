@@ -219,13 +219,34 @@ optgroup {
 }
 
 table {
-    border-spacing: 0;
-    border-collapse: collapse
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  border-collapse: collapse;
+  border: 0px solid #38678f;
+  margin: 0px auto;
+  background: white;
+  table-layout: auto;
+  vertical-align: middle;
 }
-
-td,
+tr {
+  border-bottom: 1px solid #cccccc;
+    height: 30px;
+}
+td {
+  border-right: 1px solid #cccccc;
+  padding: 10px;
+  transition: all 0.2s;}
 th {
-    padding: 0
+  background: steelblue;
+  height: 30px;
+  width: auto;
+  font-weight: lighter;
+  text-shadow: 0 1px 0 #38678f;
+  color: white;
+  border: 1px solid #38678f;
+  box-shadow: inset 0px 1px 2px #568ebd;
+  transition: all 0.2s;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 
@@ -2818,7 +2839,7 @@ th {
 .table>thead>tr>th {
     padding: 8px;
     line-height: 1.42857143;
-    vertical-align: top;
+    vertical-align: middle;
     border-top: 1px solid #ddd
 }
 

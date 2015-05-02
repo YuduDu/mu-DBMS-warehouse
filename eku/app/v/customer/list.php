@@ -11,7 +11,7 @@
         <th>客户银行</th>
         <th>客户银行账号</th>
         <th>查看客户详情</th>
-  			<th>修改</th>
+  			<th style="width:48px">修改</th>
   		</tr>
       </thead>
       <tbody>
