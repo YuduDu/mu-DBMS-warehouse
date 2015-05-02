@@ -12,7 +12,7 @@
   </div>
   <br>
 
-  <select class="form-control _old_inbound" name="Inbound_id_old">
+  <select class="form-control _old_inbound" name="Inbound_id_old" style="margin-left:60px">
     <?php foreach($inbound as $v){ ?>
     <option value="<?php echo $v['Inbound_id'];?>"><?php echo $v['Inbound_id'].':供货商'.$v['Suppliers_Sid'].',送货人姓名'.$v['Deliverer'];?></option>
     <?php }?>
@@ -43,11 +43,11 @@
     <input type="text" name="Stockarea" class="form-control" >
   </div><br>
   <div class="form-group">
-    <label>数量</label>
+    <label style="padding-left:28px">数量</label>
     <input type="text" name="Amount" class="form-control" >
   </div>
   <div class="form-group">
-    <label>单价</label>
+    <label style="padding-left:14px">单价</label>
     <input type="text" name="Unit_Price" class="form-control" >
   </div>
   

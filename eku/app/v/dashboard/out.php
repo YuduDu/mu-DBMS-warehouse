@@ -7,12 +7,12 @@
 
   <div class="form-group">
     <label>客户编号</label>
-    <input type="text" name="Customer_Cid" class="form-control">
+    <input type="text" name="Customer_Cid" class="form-control" style="width:182px;">
   </div>
   <div class="form-group">
     <label>送货人姓名</label>
     <input type="text" name="Consignee" class="form-control" >
-  </div>
+  </div><br>
 
   <label>选择出货单组</label>
   <select class="form-control" name="Inbound_id_old">
@@ -20,7 +20,7 @@
     <option value="<?php echo $v['Inbound_id'];?>"><?php echo $v['Inbound_id'].': '.$v['Inbound_Iname'].',数量'.$v['Amount'];?></option>
     <?php }?>
   </select>
-  <div class="form-group">
+  <div class="form-group" style="margin-left:14px">
     <label>出货数量</label>
     <input type="text" name="Amount" class="form-control" >
   </div>

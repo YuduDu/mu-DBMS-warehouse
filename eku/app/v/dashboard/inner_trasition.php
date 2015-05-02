@@ -1,17 +1,5 @@
 <form class="form-inline" method="post" action="">
-  <div class="form-group">
-    <label>涉及到的仓库编号</label>
-    <input type="text" name="I_T_Wid" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>数量</label>
-    <input type="text" name="Amount" class="form-control" >
-  </div>
-  <div class="form-group">
-    <label>物品的名称</label>
-    <input type="text" name="Items_Iname" class="form-control" >
-  </div>
-  <div class="radio">
+    <div class="radio">
   流转类型:
     <label>入库
       <input type="radio" name="Operate" value="I" checked>
@@ -22,6 +10,20 @@
       <input type="radio" name="Operate" value="O">
     </label>
   </div>
+  <br>
+  <div class="form-group">
+    <label>涉及到的仓库编号</label>
+    <input type="text" name="I_T_Wid" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>数量</label>
+    <input type="text" name="Amount" class="form-control" >
+  </div><br>
+  <div class="form-group">
+    <label>物品的名称</label>
+    <input type="text" name="Items_Iname" class="form-control" >
+  </div>
+
 
   <div class="form-group">
     <label>涉及到的库存项编号</label>
