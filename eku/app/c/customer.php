@@ -36,7 +36,7 @@ class customer extends base{
       'submitName'=>'customer_add', //提交按钮
       'required'=>array('Cname','Ccontact','Caddress','Cpostcode','Cphone'),  //必填字段
       'addCondition'=>false, //排重条件
-      'addConditionMsg'=>'请勿重复添加',  //出现重复时，给出提示文字
+      'addConditionMsg'=>'Repeated Information',  //出现重复时，给出提示文字
       'addExcute'=>array('m'=>$this->m,'method'=>'customer_add'),  //执行添加
       'view'=>'v/customer/customer_add'  //视图
     );

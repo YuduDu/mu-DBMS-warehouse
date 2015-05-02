@@ -19,7 +19,7 @@ class base extends c{
     $db_config = array(
       'host'      =>'45.62.107.251', 
       'user'      =>'eku',  
-      'password'  =>'eku', 
+      'password'  =>'eku',
       'db_type'   =>'mysql',
       'default_db'=>'zadmin_eku'
     );
@@ -42,36 +42,36 @@ class base extends c{
 
     $this->menu = array(
           'dashboard'=>'Dashboard',
-          'stock'=>'库存单管理',
-          'item'=>'物品类管理',
-          'supplier'=>'供应商管理',
-          'customer'=>'客户管理',
-          'warehouse'=>'仓库管理',
-          'systemInfo'=>'系统信息',
-          'staff'=>'员工管理',
-          'admin'=>'系统管理',
-          'logout'=>'注销'
+          'stock'=>'Inbound/Outbound list',
+          'item'=>'Items',
+          'supplier'=>'Supplier',
+          'customer'=>'Customer',
+          'warehouse'=>'warehouse',
+          'logout'=>'Log Out',
+          'staff'=>'Staff',
+          'admin'=>'System',
+          'systemInfo'=>'System Information'
    );
 
   $this->tabCell = array(
           'dashboard'=>array( //'notice'=>'库存通知',
-              'add'=>'添加货物','out'=>'出库','inner_trasition'=>'内部流转'),
+              'add'=>'Add New Inbound','out'=>'Add New Outbound','inner_trasition'=>'Add New Inner Trasition'),
           'stock'=>array(
-              'inbound_list'=>'入库数据','outbound_list'=>'出库数据','inner_list'=>'内部流转'),
+              'inbound_list'=>'Inbound List','outbound_list'=>'Outbound List','inner_list'=>'Inner Trasition List'),
           'item'=>array(
-              'item_category_list'=>'物品类别', 'item_category_add'=>'添加物品类别','item_add'=>'添加物品'),//'detailList'=>'具体物品列表数据','collect'=>'物品统计'),
+              'item_category_list'=>'Items Category', 'item_category_add'=>'New Item Category','item_add'=>'New Item'),//'detailList'=>'具体物品列表数据','collect'=>'物品统计'),
           'supplier'=>array(
-              'supplier_list'=>'供应商列表','add'=>'添加供应商'),//,'detail'=>'供应商详情','edit'=>'修改供应商详情'),
+              'supplier_list'=>'Supplier List','add'=>'New Supplier'),//,'detail'=>'供应商详情','edit'=>'修改供应商详情'),
           'customer'=>array(
-              'customer_list'=>'客户列表','add'=>'添加客户'),
+              'customer_list'=>'Customer List','add'=>'New Customer'),
           'warehouse'=>array(
-              'warehouse_list'=>'仓库列表','warehouse_add'=>'添加仓库'),
-          'systemInfo'=>array('info'=>'系统信息','account'=>'修改密码'),
+              'warehouse_list'=>'Warehouse List','warehouse_add'=>'Add Warehouse'),
+          'systemInfo'=>array('info'=>'System Information','account'=>'New Password'),
           'staff'=>array(
-              'category_list'=>'员工类别列表','category_add'=>'添加员工类别','staff_list'=>'员工列表','staff_add'=>'添加员工'),
+              'category_list'=>'Staff Category','category_add'=>'New Staff Category','staff_list'=>'Staff List','staff_add'=>'Add New Staff'),
           'admin'=>array(
-              'admin_list'=>'用户列表','admin_add'=>'添加用户'),
-          'logout'=>'注销'
+              'admin_list'=>'User List','admin_add'=>'Add New User'),
+          'logout'=>'Log Out'
   );
 
   //添加参数
@@ -79,7 +79,7 @@ class base extends c{
       'submitName'=>'_add', //提交按钮
       'required'=>array(),  //必填字段
       'addCondition'=>false, //排重条件
-      'addConditionMsg'=>'请勿重复添加',  //出现重复时，给出提示文字
+      'addConditionMsg'=>'Repeated Information! ',  //出现重复时，给出提示文字
       'addExcute'=>array('m'=>object,'method'=>''),  //执行添加
       'view'=>'v/'  //视图
   );
@@ -148,7 +148,7 @@ class base extends c{
     }
     
     if( $this->m->login( $_POST['username'] , $_POST['password'] )){
-      redirect($rtu,'登录成功！');
+      redirect($rtu,'Welcome!');
       exit;
     }
     
@@ -219,7 +219,7 @@ class base extends c{
         }else{
           $m = $addExcute['m'];
           $m->$addExcute['method']();
-          $this->msg = '添加成功';
+          $this->msg = 'Succeed';
         }
       }else{
         $this->err = $err;

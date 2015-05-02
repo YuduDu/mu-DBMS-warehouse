@@ -31,7 +31,7 @@ class dashboard extends base{
             $err = validate($conf);
             if ( $err !== TRUE) {
                 $errArr = $err;
-                throw new Exception('入库单参数不完整',1);
+                throw new Exception('Please fill out all information needed for Inbound!',1);
             }
             $conf_detail = array('Inbound_Iname'=>'required','Amount'=>'required','Unit_Price'=>'required',
                     'Stockarea'=>'required','Warehouse_Wid'=>'required');
@@ -40,7 +40,7 @@ class dashboard extends base{
               $inboundID = $this->m->inbound_add($post);
             }else{
               $errArr = $err_detail;
-              throw new Exception('入库单详情参数不完整',1);
+              throw new Exception('Please fill out all detailed information needed for Inbound',1);
             }
           }else if($post['InboundStyle'] == 1){
             $inboundID = $post['Inbound_id_old'];
@@ -48,7 +48,7 @@ class dashboard extends base{
 
           //Warehouses入库
           $warehouses_id = $this->m->warehouses_add(array('Admin_id'=>$post['Approver_id']));
-          if(!$warehouses_id){ throw new Exception('仓库入库失败',2);} 
+          if(!$warehouses_id){ throw new Exception('Failed to create Inbound record.',2);} 
           $post['Warehouse_Wid'] = $warehouses_id;
 
           //Stocks入库
@@ -58,10 +58,10 @@ class dashboard extends base{
           $err_Stocks = validate($conf_Stocks,$stockParams);
           if ( $err_Stocks !== TRUE) {
               $errArr = $err_Stocks;
-              throw new Exception('库存项参数不完整',1);
+              throw new Exception('Please fill out all informations needed for Stock',1);
           }
           $stockid = $this->m->stock_add($stockParams);
-          if(!$stockid){ throw new Exception('库存项入库失败',2);} 
+          if(!$stockid){ throw new Exception('Failed to create a Stock!',2);} 
           $post['Inbound_Stockid'] = $stockid;
 
           //Inbound_details入库
@@ -69,12 +69,12 @@ class dashboard extends base{
             $post['Inbound_id'] = $inboundID;
             $res = $this->m->inbound_detail_add($post);
             if($res !== 0){
-              throw new Exception('添加入库单物品详情失败',2);
+              throw new Exception('Fail to create detailed Inbound information.',2);
             }else{
-              throw new Exception('入库成功',2);
+              throw new Exception('Inbound Succeed',2);
             }
           }else if($newBound) {
-            throw new Exception('添加入库单失败',2);
+            throw new Exception('Inbound Fail',2);
           }
 
         } catch (Exception $e) {
@@ -100,7 +100,7 @@ class dashboard extends base{
         $err = validate($conf);
         if ( $err !== TRUE) {
             $errArr = $err;
-            throw new Exception('出库单参数不完整',1);
+            throw new Exception('Please fill out all imformation needed for Outbound',1);
         }
 
         //出库详情参数检验
@@ -108,7 +108,7 @@ class dashboard extends base{
         $err_detail = validate($conf_detail);
         if( $err_detail !== TRUE ){
           $errArr = $err_detail;
-          throw new Exception('出库详情参数不完整',1);
+          throw new Exception('Please fill out all detailed information for outbound.',1);
         }
         
         //拿到入库详情数据
