@@ -16,10 +16,10 @@
     <input type="text" name="I_T_Wid" class="form-control">
   </div>
   <div class="form-group">
-    <label>数量</label>
+    <label style="margin-left:97px">数量</label>
     <input type="text" name="Amount" class="form-control" >
   </div><br>
-  <div class="form-group">
+  <div class="form-group" style="padding-left:42px">
     <label>物品的名称</label>
     <input type="text" name="Items_Iname" class="form-control" >
   </div>
