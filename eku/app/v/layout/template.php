@@ -11,7 +11,7 @@
 </head>
 <body id="app">
     <nav class="navbar navbar-inverse">
-      <div class="container-fluid" style="width: 1034px;margin: 0 auto;">
+      <div class="container-fluid" style="width: 1200px;margin: 0 auto;">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
