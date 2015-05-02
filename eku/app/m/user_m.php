@@ -38,14 +38,14 @@ class user_m extends m {
   {
     $user = $this->db->query("select * from user where id=$id");
     if(!isset($user[0])){
-      $this->login_err = '用户不存在！';
+      $this->login_err = 'user not exist!';
       return FALSE;
     }
     if($user[0]['password'] != $this->encode($password) )
     {
       $msg = $user[0]['password']." != ".$this->encode($password) ;
 //      die($msg);
-      $this->login_err = '密码错误！';
+      $this->login_err = 'Wrong password!';
       return FALSE;
     }  
     return true;
@@ -56,7 +56,7 @@ class user_m extends m {
     $email = addslashes($email);
     $user = $this->db->query("select * from user where LOWER(email)=lower('$email')");
     if(!isset($user[0])){
-      $this->login_err = '用户不存在！';
+      $this->login_err = 'User not exist!';
       return FALSE;
       $uid = $this->add_user( array('email'=>$email, 'password'=> $password,'level'=>20 ));
       /*
@@ -124,7 +124,7 @@ function val_dist_email($email)
 {
   $email = addslashes($email);
   $user = load('m/user_m')->get(" and lower(email) = lower('$email') ");
-  if(isset($user[0])) return 'email 地址已经存在';
+  if(isset($user[0])) return 'Username already exist!';
   return true;
 }
 
@@ -132,6 +132,6 @@ function val_dist_username($username)
 {
   $username = addslashes($username);
   $user = load('m/user_m')->get(" and lower(username) = lower('$username') ");
-  if(isset($user[0])) return '用户名已经存在';
+  if(isset($user[0])) return 'Username already exist!';
   return true;  
 }

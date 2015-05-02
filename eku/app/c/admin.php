@@ -21,7 +21,7 @@ class admin extends base{
       'submitName'=>'admin_add', //提交按钮
       'required'=>array('Username','Password','Staffs_Sid'),  //必填字段
       'addCondition'=>false, //排重条件
-      'addConditionMsg'=>'请勿重复添加',  //出现重复时，给出提示文字
+      'addConditionMsg'=>'Repeated Information',  //出现重复时，给出提示文字
       'addExcute'=>array('m'=>$this->m,'method'=>'admin_add'),  //执行添加
       'view'=>'v/admin/admin_add'  //视图
     );
@@ -35,9 +35,9 @@ class admin extends base{
       $p['Username'] = seg(4);
       $up = $this->m->update($p['Username']);
       if($up){
-        $this->msg = '修改成功';
+        $this->msg = 'Succeed!';
       }else{
-        $this->msg = '修改失败';
+        $this->msg = 'Failed!';
       }
     }
     
@@ -49,7 +49,7 @@ class admin extends base{
   function admin_remove(){
     $this->m->key = 'Username';
     $this->m->del(seg(4));
-    redirect('?/admin/admin_list','删除成功','',3);
+    redirect('?/admin/admin_list','Succeed','',3);
   }
 
 

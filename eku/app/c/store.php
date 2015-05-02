@@ -11,7 +11,7 @@ class store extends base{
     $this->m = load('m/eku');
    
     $this->app = load('m/app')->get($app_id);
-    if( $this->app['admin'] == $this->u['id'] ) $this->menu['sys'] ='设置';
+    if( $this->app['admin'] == $this->u['id'] ) $this->menu['sys'] ='Set up';
   }
 
   function index()

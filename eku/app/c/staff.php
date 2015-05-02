@@ -24,10 +24,10 @@ class staff extends base{
       $err = validate($conf);
       if ( $err === TRUE) {
         if($this->m->category_getBySCid($_POST['SCid'])){ //防止重复添加
-          $this->msg = '此员工类型的ID已存在';
+          $this->msg = 'This id is already exist!';
         }else{
           $this->m->category_add();
-          $this->msg = '添加成功';
+          $this->msg = 'Succeed!';
         }
       }else{
         $this->err = $err;
@@ -43,9 +43,9 @@ class staff extends base{
         $this->m->table = 'Staff_Category';
         $this->m->key = 'SCid';
         $up = $this->m->update(seg(4));
-        $this->msg = $up?'修改成功':'修改失败';
+        $this->msg = $up?'Succeed':'Failed';
       }else{
-        $this->msg = '字段不能为空';
+        $this->msg = 'Please fill out all informations.';
       }
     }
 
@@ -66,9 +66,9 @@ class staff extends base{
       $err = validate($conf);
       if( $err === TRUE ){
           if($this->m->staff_add()){
-              $this->msg = '添加成功';
+              $this->msg = 'Succeed!';
           }else{
-              $this->msg = '添加失败';
+              $this->msg = 'Failed!';
           }
       }else{
           $this->err = $err;
@@ -89,7 +89,7 @@ class staff extends base{
         $this->err = $err;
       }
       $up = $this->m->update(seg(4));
-      $this->msg = $up?'修改成功':'修改失败';
+      $this->msg = $up?'Succeed!':'Failed!';
     }
 
     $res = $this->m->get_one(seg(4));

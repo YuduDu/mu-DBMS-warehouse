@@ -140,7 +140,7 @@ class base extends c{
     if (is_array($err)) {
       //$err['info'] = $this->m->login_err; 
       $param['err'] = $err;
-      $param['page_title'] = $param['meta_keywords'] = $param['meta_description'] = '登录';
+      $param['page_title'] = $param['meta_keywords'] = $param['meta_description'] = 'Log In';
       //$this->display('v/user/login',$param); 
       //if(browser() == 'html4')view('v/user/login_ie',$param);
       view('v/store/login',$param);  

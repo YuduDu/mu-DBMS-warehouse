@@ -60,7 +60,7 @@ class customer extends base{
         $this->err = $err;
       }
       $up = $this->m->update(seg(4));
-      $this->msg = $up?'修改成功':'修改失败';
+      $this->msg = $up?'Succeed':'Failed';
     }
 
     $res = $this->m->get_one(seg(4));

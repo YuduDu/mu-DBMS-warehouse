@@ -19,11 +19,11 @@ class systemInfo extends base{
     if(isset($_POST['edit_pwd'])){
         $password = strip_tags(trim($_POST['Password']));
         if(strlen($password)<5){
-            $this->msg = '密码长度不能小于五位';
+            $this->msg = 'Password need to be more than 5 characters.';
         }else{
           $this->m->key = 'Username';
           $res = $this->m->update($_POST['Username']);
-          $this->msg = $res ? '修改成功':'修改失败';
+          $this->msg = $res ? 'Succeed!':'Failed!';
         }
     }
     

@@ -40,9 +40,9 @@ class supplier extends base{
       $err = validate($conf);
       if ( $err === TRUE) {
         if($this->m->supplier_add()){
-          $this->msg = '添加成功';
+          $this->msg = 'Succeed!';
         }else{
-          $this->msg = '添加失败';
+          $this->msg = 'Failed!';
         }
       }else{
         $this->err = $err;
@@ -62,7 +62,7 @@ class supplier extends base{
         $this->err = $err;
       }
       $up = $this->m->update(seg(4));
-      $this->msg = $up?'修改成功':'修改失败';
+      $this->msg = $up?'Succeed!':'Failed!';
     }
 
     $res = $this->m->get_one(seg(4));

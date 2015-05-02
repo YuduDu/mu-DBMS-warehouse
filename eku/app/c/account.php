@@ -17,7 +17,7 @@ class account extends base{
       $_SESSION['STOCK_Sid'] = $res[0]['Staffs_Sid'];
 			redirect('?/dashboard/notice');
 		}else{
-			$msg = '用户名或密码错误';
+			$msg = 'Wrong account or password !';
 		}
 	}
 

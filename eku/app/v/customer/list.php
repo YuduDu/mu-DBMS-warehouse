@@ -3,15 +3,15 @@
   	<thead>
   		<tr>
         <th>Customer Company Name</th>
-  			<th>Customer </th>
-  			<th>客户联系人姓名</th>
-        <th>客户地址</th>
-        <th>客户邮编</th>
-        <th>客户电话</th>
-        <th>客户银行</th>
-        <th>客户银行账号</th>
-        <th>查看客户详情</th>
-  			<th style="width:48px">修改</th>
+  			<th>Customer Contact Name</th>
+  			<th>Customer Contact Name</th>
+        <th>Company Address</th>
+        <th>Zip Code</th>
+        <th>Phone</th>
+        <th>Bank Name</th>
+        <th>Bank Account</th>
+        <th>More Informations</th>
+  			<th style="width:48px">Edit</th>
   		</tr>
       </thead>
       <tbody>
@@ -25,8 +25,8 @@
         <td><?php echo $v['Cphone'];?></td>
   			<td><?php echo $v['Cbank'];?></td>
   			<td><?php echo $v['Caccount'];?></td>
-        <td><a href="?/customer/customer_detail/Cid/<?php echo $v['Cid'];?>">查看</a></td>  
-  			<td><a href="?/customer/customer_edit/Cid/<?php echo $v['Cid'];?>">编辑</a></td>
+        <td><a href="?/customer/customer_detail/Cid/<?php echo $v['Cid'];?>">More Info</a></td>  
+  			<td><a href="?/customer/customer_edit/Cid/<?php echo $v['Cid'];?>">Edit</a></td>
   		</tr>
   		<?php }?>
     	</tbody>
