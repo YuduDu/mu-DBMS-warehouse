@@ -2,9 +2,9 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-  			<th>员工类型ID</th>
-  			<th>员工类型描述</th>
-  			<th>操作</th>
+  			<th>Staff Class ID</th>
+  			<th>Staff Class Details</th>
+  			<th>Edit</th>
   		</tr>
       </thead>
       <tbody>
@@ -12,7 +12,7 @@
   		<tr>
   			<td><?php echo $v['SCid']?></td>
   			<td><?php echo $v['SType']?></td>
-  			<td><a href="?/staff/category_edit/SCid/<?php echo $v['SCid'];?>">编辑</a></td>
+  			<td><a href="?/staff/category_edit/SCid/<?php echo $v['SCid'];?>">Edit</a></td>
   		</tr>
   		<?php }?>
     	</tbody>

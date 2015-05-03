@@ -1,18 +1,18 @@
 <form class="form-inline" method="post" action="">
   <div class="form-group">
-    <label>物品的名称</label>
+    <label>Item code</label>
     <input type="text" name="Iname" class="form-control">
   </div>
   <div class="form-group">
-    <label>物品的大类</label>
+    <label>Item Class</label>
     <input type="text" name="ICname" class="form-control">
   </div>
   <div class="form-group">
-    <label>物品的计量单位</label>
+    <label>Unit</label>
     <input type="text" name="Unit" class="form-control">
   </div>
   
   <br><div class="form-group">
-    <button type="submit" name="item_add" class="btn btn-default">添加</button>
+    <button type="submit" name="item_add" class="btn btn-default">Add</button>
   </div>
 </form>
