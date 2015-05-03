@@ -26,7 +26,7 @@
 
 
   <div class="form-group">
-    <label>Stock Code</label>
+    <label style="margin-left:78px">Stock Code</label>
     <input type="text" name="Stockid" class="form-control" >
   </div>
   

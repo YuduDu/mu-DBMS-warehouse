@@ -6,13 +6,13 @@
   <br>
 
   <div class="radio">
-    <label>Choose exist from Inbound list:</label>
-      <label>Exist</label> <input type="radio" name="InboundStyle" value="1" checked>
-      <label>Create a new Inbound</label> <input type="radio" name="InboundStyle" value="2">
+    <!--<label>Choose exist from Inbound list:</label>-->
+      <label>Exist Inbound</label> <input type="radio" name="InboundStyle" value="1" checked>
+      <label>Create Inbound</label> <input type="radio" name="InboundStyle" value="2">
   </div>
   <br>
 
-  <select class="form-control _old_inbound" name="Inbound_id_old" style="margin-left:60px">
+  <select class="form-control _old_inbound" name="Inbound_id_old" style="margin-left:20px">
     <?php foreach($inbound as $v){ ?>
     <option value="<?php echo $v['Inbound_id'];?>"><?php echo $v['Inbound_id'].':供货商'.$v['Suppliers_Sid'].',送货人姓名'.$v['Deliverer'];?></option>
     <?php }?>
@@ -43,11 +43,11 @@
     <input type="text" name="Stockarea" class="form-control" >
   </div><br>
   <div class="form-group">
-    <label style="padding-left:28px">Amount</label>
+    <label style="padding-left:20px">Amount</label>
     <input type="text" name="Amount" class="form-control" >
   </div>
   <div class="form-group">
-    <label style="padding-left:14px">Unit Price</label>
+    <label style="padding-left:54px">Unit Price</label>
     <input type="text" name="Unit_Price" class="form-control" >
   </div>
   
