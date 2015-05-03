@@ -2017,10 +2017,11 @@ pre code {
 
 .container-fluid {
     padding-right: 45px;
-    padding-left: 45px;
+    padding-left: 100px;
     margin-right: auto;
     margin-left: auto
 }
+
 
 .row {
     margin-right: -15px;
@@ -2844,7 +2845,7 @@ th {
 }
 
 .table>thead>tr>th {
-    vertical-align: bottom;
+    vertical-align: center;
     border-bottom: 2px solid #ddd
 }
 
@@ -3102,7 +3103,8 @@ label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
-    font-weight: 700
+    font-weight: 700;
+    margin-left:20px;
 }
 
 input[type=search] {

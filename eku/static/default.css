@@ -299,6 +299,6 @@ outline: none;
 .tabUl li a{padding: 0 5px;}
 .tabUl .tabActive{color: #aaaaaa;}
 #contentView{width: 1000px;margin: 0 auto;}
-.viewDetail{margin-top: 15px;margin-left: 0px;background-color: #ffffff;padding: 15px;border-radius: 0px;border-bottom: medium solid #1abc9c;box-shadow: 2px 2px 1px #888888;}
+.viewDetail{margin-top: 15px;margin-left: 0px;background-color: #ffffff;padding: 15px;border-radius: 0px;border-bottom: medium solid #1abc9c;box-shadow: 2px 2px 1px #888888;margin-bottom: 50px}
 form input[type="text"]{width:200px; }
 .form-group{margin:10px 0;}
