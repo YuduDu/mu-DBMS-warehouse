@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>Warehouse Management</title>
+  <title>仓储</title>
+  <meta name="keywords" content="BugTRace"/>
+  <meta name="description" content="BugTRace Home Page"/>
   <link href="static/default.css" rel="stylesheet" type="text/css" media="screen" />
   <link href="static/css/bootstrapv3.min.css" rel="stylesheet" type="text/css" media="screen" />
   <script type="text/javascript" src="static/js/jquery.min.js"></script>
@@ -18,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="?/dashboard/add">Warehouse Management</a>
+        <a class="navbar-brand" href="?/dashboard/add">仓储</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,7 +44,7 @@
           
         <form class="form-inline" action="?/search/key" method="post" style="margin-bottom: 10px; <?php if(!$needSearch){echo 'display:none;';}?>">
           <div class="form-group">
-            <label>Search</label>
+            <label>搜索</label>
             <input type="text" name="key" value="<?php if($needSearch && seg(3) == 's'){echo urldecode(seg(4));} ?>" class="form-control">
             <input type="hidden" name="uri" value="<?php echo seg(1).'/'.seg(2);?>">
           </div>
@@ -54,7 +56,7 @@
         <?php echo $al_content;?>
         <p style="color:red;margin-top:10px;">
           <?php foreach($err as $e=>$r) {
-                echo 'field'.$e.$r.' . ';
+                echo '字段'.$e.$r.' . ';
           }
               echo $msg;
           ?>
