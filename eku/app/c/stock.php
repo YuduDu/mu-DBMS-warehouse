@@ -48,7 +48,13 @@ class stock extends base{
       $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'stock/outbound_list/s/'.urlencode(strip_tags(trim(seg(4)))).'/p/');
     }
 
-    $this->display('v/stock/outbound_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m),true);
+    $this->display('v/stock/outbound_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m,'map'=>$this->outbound_statistics()),true);
+  }
+
+  //出库单统计
+  private function outbound_statistics(){
+    $res = $this->m->db->query('select * from Customer_Order_statistics order by CreateTime desc limit 0,10');
+    return $res;
   }
 
   function inner_list(){

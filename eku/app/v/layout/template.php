@@ -8,6 +8,7 @@
   <link href="static/css/bootstrapv3.min.css" rel="stylesheet" type="text/css" media="screen" />
   <script type="text/javascript" src="static/js/jquery.min.js"></script>
   <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="static/js/ichart.1.2.min.js"></script>
 </head>
 <body id="app">
     <nav class="navbar navbar-inverse" style="padding-left:20px">
