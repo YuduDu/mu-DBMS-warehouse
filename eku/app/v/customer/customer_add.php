@@ -12,19 +12,19 @@
     <input type="text" name="Caddress" class="form-control">
   </div>
   <div class="form-group">
-    <label>Zip code</label>
+    <label style="margin-left:62px">Zip code</label>
     <input type="text" name="Cpostcode" class="form-control">
   </div>
   <div class="form-group">
-    <label>Phone number</label>
+    <label style="margin-left:80px">Phone number</label>
     <input type="text" name="Cphone" class="form-control">
   </div>
   <div class="form-group">
-    <label>Bank Name</label>
+    <label style="margin-left:60px">Bank Name</label>
     <input type="text" name="Cbank" class="form-control">
   </div>
   <div class="form-group">
-    <label>Bank Account</label>
+    <label style="margin-left:34px">Bank Account</label>
     <input type="text" name="Caccount" class="form-control">
   </div>
   

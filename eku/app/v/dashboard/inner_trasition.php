@@ -19,7 +19,7 @@
     <label style="margin-left:97px">Amount</label>
     <input type="text" name="Amount" class="form-control" >
   </div><br>
-  <div class="form-group" style="padding-left:42px">
+  <div class="form-group" style="padding-left:44px">
     <label>Item code</label>
     <input type="text" name="Items_Iname" class="form-control" >
   </div>

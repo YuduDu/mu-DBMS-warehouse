@@ -43,11 +43,11 @@
     <input type="text" name="Stockarea" class="form-control" >
   </div><br>
   <div class="form-group">
-    <label style="padding-left:20px">Amount</label>
+    <label style="padding-left:18px">Amount</label>
     <input type="text" name="Amount" class="form-control" >
   </div>
   <div class="form-group">
-    <label style="padding-left:54px">Unit Price</label>
+    <label style="padding-left:48px">Unit Price</label>
     <input type="text" name="Unit_Price" class="form-control" >
   </div>
   

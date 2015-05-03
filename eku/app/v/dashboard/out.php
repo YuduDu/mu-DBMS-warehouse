@@ -21,7 +21,7 @@
     <?php }?>
   </select>
   <div class="form-group" style="margin-left:14px">
-    <label>Amount</label>
+    <label style="margin-left:24px">Amount</label>
     <input type="text" name="Amount" class="form-control" >
   </div>
 

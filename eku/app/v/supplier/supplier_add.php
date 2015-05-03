@@ -8,27 +8,27 @@
     <input type="text" name="Scontact" class="form-control">
   </div>
   <div class="form-group">
-    <label>Supplier Address</label>
+    <label style="margin-left:66px">Supplier Address</label>
     <input type="text" name="Saddress" class="form-control">
   </div>
-  <br>
 
   <div class="form-group">
-    <label>Zip code</label>
+    <label style="margin-left:124px">Zip code</label>
     <input type="text" name="Spostcode" class="form-control">
   </div>
+    <br>
   <div class="form-group">
-    <label>Phone</label>
+    <label style="margin-left:128px">Phone</label>
     <input type="text" name="Sphone" class="form-control">
   </div>
   <div class="form-group">
-    <label>Bnak Name</label>
+    <label style="margin-left:108px">Bank Name</label>
     <input type="text" name="Sbank" class="form-control">
   </div>
   <br>
 
   <div class="form-group">
-    <label>Bank Account</label>
+    <label style="margin-left:84px">Bank Account</label>
     <input type="text" name="Saccount" class="form-control">
   </div>
   
