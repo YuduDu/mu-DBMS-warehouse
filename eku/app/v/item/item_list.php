@@ -2,11 +2,11 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-  			<th>物品的名称</th>
-  			<th>物品的大类</th>
-        <th>物品的计量单位</th>
-        <th>修改</th>
-        <th>删除</th>
+  			<th>Item Code</th>
+  			<th>Item Class</th>
+        <th>Unit</th>
+        <th>Edit</th>
+        <th>Delete</th>
   		</tr>
       </thead>
       <tbody>
@@ -15,8 +15,8 @@
   			<td><?php echo $v['Iname'];?></td>
   			<td><?php echo $v['ICname'];?></td>
         <td><?php echo $v['Unit'];?></td>
-        <td><a href="?/item/item_edit/Iname/<?php echo urlencode($v['Iname']);?>">修改</a></td>
-        <td><a href="?/item/item_remove/Iname/<?php echo urlencode($v['Iname']);?>">删除</a></td>
+        <td><a href="?/item/item_edit/Iname/<?php echo urlencode($v['Iname']);?>">Edit</a></td>
+        <td><a href="?/item/item_remove/Iname/<?php echo urlencode($v['Iname']);?>">Delete</a></td>
   		</tr>
   		<?php }?>
     	</tbody>

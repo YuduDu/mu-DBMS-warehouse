@@ -2,13 +2,13 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-  			<th>内部流转的编号</th>
-  			<th>涉及到的仓库编号</th>
-  			<th>数量</th>
-        <th>物品的名称</th>
-        <th>流转类型</th>
-        <th>涉及到的库存项编号</th>
-        <th>创建时间</th>
+  			<th>Inner Transition</th>
+  			<th>Warehouse Code</th>
+  			<th>Amount</th>
+        <th>Item Code</th>
+        <th>Transition Code</th>
+        <th>Stock Code</th>
+        <th>Create Time</th>
         <!--<th>操作</th>-->
   		</tr>
       </thead>

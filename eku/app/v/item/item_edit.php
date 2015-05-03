@@ -1,18 +1,18 @@
 <form class="form-inline" method="post" action="">
   <div class="form-group">
-    <label>物品的名称</label>
+    <label>Item Code</label>
     <input type="text" value="<?php echo $res['Iname'];?>" name="Iname" class="form-control">
   </div>
   <div class="form-group">
-    <label>物品的大类</label>
+    <label>Item Class</label>
     <input type="text" value="<?php echo $res['ICname'];?>" name="ICname" class="form-control">
   </div>
   <div class="form-group">
-    <label>物品的计量单位</label>
+    <label>Item Unit</label>
     <input type="text" value="<?php echo $res['Unit'];?>" name="Unit" class="form-control">
   </div>
   
   <br><div class="form-group">
-    <button type="submit" name="item_edit" class="btn btn-default">修改</button>
+    <button type="submit" name="item_edit" class="btn btn-default">Edit</button>
   </div>
 </form>
