@@ -46,11 +46,11 @@ class base extends c{
           'item'=>'Items',
           'supplier'=>'Supplier',
           'customer'=>'Customer',
-          'warehouse'=>'Warehouse',
+          'warehouse'=>'warehouse',
+          'logout'=>'Log Out',
           'staff'=>'Staff',
           'admin'=>'System',
-          'systemInfo'=>'System Info',
-        'logout'=>'Log Out'
+          'systemInfo'=>'System Information'
    );
 
   $this->tabCell = array(
