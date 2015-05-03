@@ -2,16 +2,16 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-        <th>供应商编号</th>
-  			<th>供应商名字</th>
-  			<th>联系人</th>
-        <th>供应商地址</th>
-        <th>供应商邮编</th>
-        <th>供应商电话</th>
-        <th>供应商银行</th>
-        <th>供应商银行地址</th>        
-  			<th style="width:48px">查看</th>
-        <th style="width:48px">编辑</th>
+        <th>Supplier ID</th>
+  			<th>Supplier Company Name</th>
+  			<th>Supplier Company Contact</th>
+        <th>Supplier Address</th>
+        <th>Zip code</th>
+        <th>Phone</th>
+        <th>Bank Name</th>
+        <th>Bank Account</th>        
+  			<th style="width:48px">More Info</th>
+        <th style="width:48px">Edit</th>
   		</tr>
       </thead>
       <tbody>
@@ -25,8 +25,8 @@
         <td><?php echo $v['Sphone'];?></td>
         <td><?php echo $v['Sbank'];?></td>
         <td><?php echo $v['Saccount'];?></td>
-        <td><a href="?/supplier/see_supplier/Sid/<?php echo $v['Sid'];?>">查看</td>
-  			<td><a href="?/supplier/mod_supplier/Sid/<?php echo $v['Sid'];?>">编辑</a></td>
+        <td><a href="?/supplier/see_supplier/Sid/<?php echo $v['Sid'];?>">Check</td>
+  			<td><a href="?/supplier/mod_supplier/Sid/<?php echo $v['Sid'];?>">Edit</a></td>
   		</tr>
   		<?php }?>
     	</tbody>

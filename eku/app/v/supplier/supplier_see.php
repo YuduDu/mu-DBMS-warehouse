@@ -1,16 +1,16 @@
-<h4>供应商基本信息</h4>
+<h4>Supplier Information</h4>
 <div class="table-responsive">
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-        <th>供应商编号</th>
-  			<th>供应商名字</th>
-  			<th>联系人</th>
-        <th>供应商地址</th>
-        <th>供应商邮编</th>
-        <th>供应商电话</th>
-        <th>供应商银行</th>
-        <th>供应商银行地址</th>        
+        <th>Supplier ID</th>
+  			<th>Supplier Company Name</th>
+  			<th>Supplier Company Contact</th>
+        <th>Supplier Comnpany Address</th>
+        <th>Zip code</th>
+        <th>Phone</th>
+        <th>Bank Name</th>
+        <th>Bank Account</th>        
   		</tr>
       </thead>
       <tbody>
@@ -28,15 +28,15 @@
   </table>
 </div>
 
-<h4>供货记录</h4>
+<h4>Supplier Order Statistic</h4>
 <div class="table-responsive">
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>供应商编号</th>
-        <th>入库单创建时间</th>
-        <th>交易金额</th>
-        <th>入库单编号</th>
+        <th>Supplier ID</th>
+        <th>Create Time</th>
+        <th>Amount Money</th>
+        <th>Inbound ID</th>
       </tr>
       </thead>
       <tbody>
