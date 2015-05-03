@@ -10,8 +10,8 @@
   <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
 </head>
 <body id="app">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid" style="width: 1200px;margin: 0 auto;">
+    <nav class="navbar navbar-inverse" style="padding-left:20px">
+      <div class="container-fluid" style="width: 1280px;margin: 0 auto;">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -20,7 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="?/dashboard/add">仓储</a>
+        <a class="navbar-brand" href="?/dashboard/add">Warehouse - 2DX</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
