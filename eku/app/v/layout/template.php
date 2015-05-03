@@ -49,7 +49,7 @@
             <input type="hidden" name="uri" value="<?php echo seg(1).'/'.seg(2);?>">
           </div>
           <div class="form-group">
-            <input class="btn btn-default" type="submit" value="搜索" name="search">
+            <input class="btn btn-default" type="submit" value="Search" name="search">
           </div>
         </form>
 
