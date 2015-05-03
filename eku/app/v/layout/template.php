@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<<<<<<< HEAD
-  <title>Warehouse Management</title>
-=======
   <title>Warehouse - 2DX</title>
   <meta name="keywords" content="BugTRace"/>
   <meta name="description" content="BugTRace Home Page"/>
->>>>>>> origin/master
   <link href="static/default.css" rel="stylesheet" type="text/css" media="screen" />
   <link href="static/css/bootstrapv3.min.css" rel="stylesheet" type="text/css" media="screen" />
   <script type="text/javascript" src="static/js/jquery.min.js"></script>
@@ -24,11 +20,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-<<<<<<< HEAD
-        <a class="navbar-brand" href="?/dashboard/add">Warehouse Management</a>
-=======
         <a class="navbar-brand" href="?/dashboard/add">Warehouse - 2DX</a>
->>>>>>> origin/master
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
