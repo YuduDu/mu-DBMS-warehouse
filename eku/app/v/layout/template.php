@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>仓储</title>
+  <title>Warehouse - 2DX</title>
   <meta name="keywords" content="BugTRace"/>
   <meta name="description" content="BugTRace Home Page"/>
   <link href="static/default.css" rel="stylesheet" type="text/css" media="screen" />
