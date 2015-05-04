@@ -1,20 +1,17 @@
+
 <?php
 /**
  * B2Core 是由 Brant (brantx@gmail.com)发起的基于PHP的MVC架构
  * 核心思想是在采用MVC框架的基础上最大限度的保留php的灵活性
  * 20120629
  * */
-
 define('B2CORE_VERSION','2.1');
-
 // 载入配置文件：数据库、url路由等等 
 require(APP.'config.php');
-
 // 如果配置了数据库则载入
 if(isset($db_config)){
   $db = new db($db_config);
 }
-
 // 获取请求的地址兼容 SAE
 $uri = '';
 if(isset($_SERVER['PATH_INFO'])) $uri = $_SERVER['PATH_INFO'];
@@ -36,7 +33,6 @@ function render_url()
   header ('Location:'.$_SERVER['REQUEST_URI'].'/');
   exit(0);
 }
-
 //echo ' 去除Magic_Quotes';
 if(get_magic_quotes_gpc()) // Maybe would be removed in php6
 {
@@ -49,23 +45,19 @@ if(get_magic_quotes_gpc()) // Maybe would be removed in php6
   $_GET = stripslashes_deep($_GET);
   $_COOKIE = stripslashes_deep($_COOKIE);
 } 
-
 // 执行 config.php 中配置的url路由
 foreach ($route_config as $key => $val)
 { 
   $key = str_replace(':any', '([^\/.]+)', str_replace(':num', '([0-9]+)', $key));
   if (preg_match('#^'.$key.'#', $uri))$uri = preg_replace('#^'.$key.'#', $val, $uri);
 }
-
 //echo ' 获取URL中每一段的参数';
 $uri = rtrim($uri,'/');
 $seg = explode('/',$uri);
 $des_dir = $dir = '';
-
 /* 依次载入控制器上级所有目录的架构文件 __construct.php
 * 架构文件可以包含当前目录下的所有控制器的父类，和需要调用的函数 
 */
-
 //echo 'look';
 foreach($seg as $cur_dir) 
 {
@@ -78,7 +70,6 @@ foreach($seg as $cur_dir)
     break;
   }
 }
-
 /* 根据 url 调用控制器中的方法，如果不存在返回 404 错误
 * 默认请求 class home->index()
 */
@@ -93,7 +84,6 @@ if(!class_exists($class))show_404('class_not_exists:'.$class);
 if(!method_exists($class,$method))show_404('method_not_exists:'.$class.$method);
 $B2 = new $class();
 call_user_func_array(array(&$B2, $method), array_slice($seg, 3));
-
 /* B2 系统函数 
 * load($path,$instantiate) 可以动态载入对象，如：控制器、Model、库类等
 * $path 是类文件相对 app 的地址
@@ -120,15 +110,12 @@ function &load($path, $instantiate = TRUE )
   else  $objects[$object_name] = new $class_name();
   return $objects[$object_name];
 }
-
 // 取得 url 的片段，如 url 是 /abc/def/g/  seg(1) = abc
 function seg($i)
 {
   global $seg;
   return isset($seg[$i])?$seg[$i]:false;
 }
-
-
 /* 调用 view 文件
 * function view($view,$param = array(),$cache = FALSE)
 * $view 是模板文件相对 app/v/ 目录的地址，地址应去除 .php 文件后缀
@@ -154,13 +141,11 @@ function view($view,$param = array(),$cache = FALSE)
     return $buffer;
   }
 }
-
 // 写入日志
 function write_log($level = 0 ,$content = 'none')
 {
   file_put_contents(APP.'log/'.$level.'-'.date('Y-m-d').'.log', $content , FILE_APPEND );
 }
-
 //echo ' 显示404错误';
 function show_404($where) //显示 404 错误
 {
@@ -171,7 +156,6 @@ function show_404($where) //显示 404 错误
   view('v/404');
   exit(1);
 }
-
 /*  B2Core 系统类 */
 // 抽象的控制器类，建议所有的控制器均基层此类或者此类的子类 
 class c { 
@@ -182,7 +166,6 @@ class c {
     //var_dump(BASE);
   }
 }
-
 class db { 
   var $link;
   var $last_query;
@@ -193,25 +176,30 @@ class db {
       die('无法连接: ' . mysql_error());
       return FALSE;
     }
-
     $db_selected = mysql_select_db($conf['default_db']);
     if (!$db_selected) {
       die('无法使用 : ' . mysql_error());
     }
     mysql_query('set names utf8',$this->link);
   }
-
   //执行 query 查询，如果结果为数组，则返回数组数据
   function query($query)
   {
+  	
     $ret = array();
     $this->last_query = $query;
     $result = mysql_query($query,$this->link);
+	//add popup box
     if (!$result) {
-      echo "DB Error, could not query the database\n";
-      echo 'MySQL Error: ' . mysql_error();
-      echo 'Error Query: ' . $query;
-      exit;
+    	$message = 'DB Error, could not query the database\n'.mysql_error();
+	echo "<SCRIPT>
+	alert('$message');
+	</SCRIPT>";
+      //echo "DB Error, could not query the database\n";
+      //echo 'MySQL Error: ' . mysql_error();
+      //echo 'Error Query: ' . $query;
+      //exit;
+      return null;
     }
     if($result == 1 )return TRUE;
     while($record = mysql_fetch_assoc($result))
@@ -220,7 +208,6 @@ class db {
     }
     return $ret;
   }
-
   function insert_id() {return mysql_insert_id();}
   
   // 执行多条 SQL 语句
@@ -236,7 +223,6 @@ class db {
     return mysql_escape_string($str);
   }
 }
-
 // 模块类，封装了通用CURD模块操作，建议所有模块都继承此类。
 class m { 
   var $db;
@@ -249,11 +235,9 @@ class m {
     $this->db = $db;
     $this->key = 'id';
   }
-
   public function __call($name, $arg) {
     return call_user_func_array(array($this, $name), $arg);
   }
-
   // 向数据库插入数组格式数据
   function add($elem = FALSE)
   {
@@ -270,13 +254,11 @@ class m {
     $this->db->query($query);
     return $this->db->insert_id();
   }
-
   // 删除某一条数据
   function del($id)
   {
     $this->db->query("delete from `$this->table` where ".$this->key."='$id'");
   }
-
   // 更新数据
   function update($id , $elem = FALSE)
   {
@@ -292,14 +274,12 @@ class m {
     //var_dump("update `$this->table` set ".implode(',',$query_list)." where ".$this->key." ='$id'" );exit();
     return $this->db->query("update `$this->table` set ".implode(',',$query_list)." where ".$this->key." ='$id'" );
   }
-
   // 统计数量
   function count($where='')
   {
     $res =  $this->db->query("select count(*) as a from `$this->table` where 1 $where");
     return $res[0]['a'];
   }
-
   /* get($id) 取得一条数据 或 
   *  get($postquery = '',$cur = 1,$psize = 30) 取得多条数据
   */
@@ -309,7 +289,6 @@ class m {
     if(is_numeric($args[0])) return $this->__call('get_one', $args);
     return $this->__call('get_many', $args);
   }
-
   function get_one($id)
   {
     $id = is_numeric($id)?$id:$id;
@@ -317,7 +296,6 @@ class m {
     if(isset($res[0]))return $res[0];
     return false;
   }
-
   function get_many($postquery = '',$cur = 1,$psize = 30)
   {
     $cur = $cur > 0 ?$cur:1;
@@ -326,3 +304,4 @@ class m {
     return $this->db->query($query);
   }
 }
+
