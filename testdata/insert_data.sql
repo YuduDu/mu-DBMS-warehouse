@@ -43,8 +43,6 @@ LOAD DATA LOCAL INFILE 'Outbound_details.txt' INTO TABLE Outbound_details
 FIELDS TERMINATED BY '\t' ESCAPED BY '\b';
 
 
-LOAD DATA LOCAL INFILE 'Stocks.txt' INTO TABLE Stocks
-FIELDS TERMINATED BY '\t' ESCAPED BY '\b';
 
 
 

@@ -2,9 +2,9 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-  			<th>仓库编号</th>
-  			<th>仓库负责员工的编号</th>
-  			<th>操作</th>
+  			<th>Warehouse Code</th>
+  			<th>In Charge Staff ID</th>
+  			<th>Operation</th>
   		</tr>
       </thead>
       <tbody>
@@ -12,7 +12,7 @@
   		<tr>
   			<td><?php echo $v['Wid']?></td>
   			<td><?php echo $v['Admin_id']?></td>
-  			<td><a href="?/warehouse/edit/Wid/<?php echo $v['Wid'];?>">编辑</a></td>
+  			<td><a href="?/warehouse/edit/Wid/<?php echo $v['Wid'];?>">Edit</a></td>
   		</tr>
   		<?php }?>
     	</tbody>

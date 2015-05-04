@@ -13,6 +13,6 @@
   </div>
   
   <br><div class="form-group">
-    <button type="submit" name="admin_add" class="btn btn-default">添加</button>
+    <button type="submit" name="admin_add" class="btn btn-default">Add</button>
   </div>
 </form>
