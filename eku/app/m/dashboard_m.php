@@ -39,6 +39,11 @@ class dashboard_m extends m {
       return $res;
   }
 
+  function Stocks_getAll(){
+      $res = $this->db->query("select * from Stocks order by Stocks_Iname asc");
+      return $res;
+  }
+
   /*Inbound_details操作*/
   function inbound_detail_add($param=false) {
     if(!$param)$param = $_POST;

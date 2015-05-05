@@ -112,12 +112,12 @@ class dashboard extends base{
         }
         
         //拿到入库详情数据
-        $this->m->table = 'Inbound_details';
-        $this->m->key = 'Inbound_id';
-        $inbound = $this->m->get_one($_POST['Inbound_id_old']);
-        //var_dump($inbound);exit();
+        $this->m->table = 'Stocks';
+        $this->m->key = 'Stockid';
+        $stock = $this->m->get_one($_POST['Stock_id_old']);
+        //var_dump($stock);exit();
 
-        if(!$inbound){
+        if(!$stock){
           throw new Exception('Please fill out all detailed information for Outbound',2);
         }
 
@@ -126,8 +126,8 @@ class dashboard extends base{
 
         //添加出库详情数据
         if(!empty($outBoundId)){
-            $post = array('Outbound_id'=>$outBoundId,'Outbound_Iname'=>$inbound['Inbound_Iname'],'Amount'=>intval($_POST['Amount']),
-              'Unit_price'=>intval($inbound['Unit_Price']),'Warehouse_Wid'=>intval($inbound['Warehouse_Wid']),'Outbound_Stockid'=>intval($inbound['Inbound_Stockid']));
+            $post = array('Outbound_id'=>$outBoundId,'Outbound_Iname'=>$stock['Stocks_Iname'],'Amount'=>intval($_POST['Amount']),
+              'Unit_price'=>intval($_POST['unitprice']),'Warehouse_Wid'=>intval($stock['Stocks_Wid']),'Outbound_Stockid'=>intval($stock['Stockid']));
             //var_dump($post);exit(); 
             $res = $this->m->outbound_detail_add($post);
             if($res !== 0){
@@ -151,8 +151,8 @@ class dashboard extends base{
       
     }
 
-    $inbound_detail = $this->m->inbound_detail_getAll();
-    $this->display('v/dashboard/out',array('inbound'=>$inbound_detail));
+    $stock_details = $this->m->Stocks_getAll();
+    $this->display('v/dashboard/out',array('stock'=>$stock_details));
   }
 
   function inner_trasition(){

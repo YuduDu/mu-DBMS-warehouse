@@ -15,15 +15,17 @@
   </div><br>
 
   <label>选择出货单组</label>
-  <select class="form-control" name="Inbound_id_old">
-    <?php foreach($inbound as $v){ ?>
-    <option value="<?php echo $v['Inbound_id'];?>"><?php echo $v['Inbound_id'].': '.$v['Inbound_Iname'].',Amount'.$v['Amount'];?></option>
+  <select class="form-control" name="Stock_id_old">
+    <?php foreach($stock as $v){ ?>
+    <option value="<?php echo $v['Stockid'];?>"><?php echo $v['Stocks_Iname'].' Warehouse:'.$v['Stocks_Wid'].', Amount'.$v['Stockamount'];?></option>
     <?php }?>
   </select>
   <div class="form-group" style="margin-left:14px">
-    <label style="margin-left:24px">Amount</label>
+  <label style="margin-left:24px">Amount</label>
     <input type="text" name="Amount" class="form-control" >
   </div>
-
+  <label style="margin-left:24px">Unit Price</label>
+    <input type="text" name="unitprice" class="form-control" >
+  </div>
   <br><div class="form-group"><button type="submit" name="outBound" class="btn btn-default">添加出货</button></div>
 </form>
