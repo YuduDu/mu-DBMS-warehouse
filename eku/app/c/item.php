@@ -121,4 +121,16 @@ class item extends base{
     redirect('?/item/item_category_list','删除成功','',3);
   }
 
+  function item_statistics(){
+    $this->m->table = 'Stock_collection';
+    $this->fields = array('Remain_Amount','Items_Iname','Minimum','Maximum');
+    
+    $page_cur = seg(4)?seg(4):1;
+    $res = $this->m->get_many('',$page_cur,10);
+    $tot = $this->m->count();
+    $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'item/item_statistics/p/');
+
+    $this->display('v/item/statistics',array('res'=>$res,'pagination'=>$pagination));
+  }
+
 }

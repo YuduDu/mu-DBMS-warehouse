@@ -59,7 +59,7 @@ class base extends c{
           'stock'=>array(
               'inbound_list'=>'Inbound List','outbound_list'=>'Outbound List','inner_list'=>'Inner Trasition List'),
           'item'=>array(
-              'item_category_list'=>'Items Category', 'item_category_add'=>'New Item Category','item_add'=>'New Item'),//'detailList'=>'具体物品列表数据','collect'=>'物品统计'),
+              'item_category_list'=>'Items Category', 'item_category_add'=>'New Item Category','item_add'=>'New Item','item_statistics'=>'Statistics'),//'detailList'=>'具体物品列表数据','collect'=>'物品统计'),
           'supplier'=>array(
               'supplier_list'=>'Supplier List','add'=>'New Supplier'),//,'detail'=>'供应商详情','edit'=>'修改供应商详情'),
           'customer'=>array(
