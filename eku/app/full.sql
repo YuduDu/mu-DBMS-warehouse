@@ -392,22 +392,30 @@ END;
 
 CREATE TRIGGER Stocks_AFTER_INSERT AFTER INSERT ON Stocks FOR EACH ROW ##--每次有新的库存项时，刷新库存统计表，如果该物品已经存在就更新剩余数量，如果不存在就新建一行数据
 BEGIN
- INSERT INTO Stock_collection (Items_Iname, Remain_Amount) VALUES (NEW.Stocks_Iname, NEW.Stockamount) ON DUPLICATE KEY UPDATE Remain_Amount=Remain_Amount+NEW.Stockamount;
+  DECLARE m_stock integer;
+  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Stocks_Iname=NEW.Stocks_Iname);
+ INSERT INTO Stock_collection (Items_Iname, Remain_Amount) VALUES (NEW.Stocks_Iname, NEW.Stockamount) ON DUPLICATE KEY UPDATE Remain_Amount=@m_stock+NEW.Stockamount;
 END;
 
 CREATE TRIGGER Stocks_BEFORE_UPDATE BEFORE UPDATE ON Stocks FOR EACH ROW ##--每次更新库存项之前，更新库存统计表，减去当前要更新的库存项的量，刷新剩余数量。
 BEGIN
-  UPDATE Stock_collection set Remain_Amount=Remain_Amount-OLD.Stockamount WHERE Items_Iname=OLD.Stocks_Iname;
+  DECLARE m_stock integer;
+  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Stocks_Iname=NEW.Stocks_Iname);
+  UPDATE Stock_collection set Remain_Amount=@m_stock-OLD.Stockamount WHERE Items_Iname=OLD.Stocks_Iname;
 END;
 
 CREATE TRIGGER Stocks_AFTER_UPDATE AFTER UPDATE ON Stocks FOR EACH ROW ##--每次更新库存项之后，更新库存统计表，加上更新后的库存项的量，刷新剩余数量。这样能保证一直剩余数量一直在更新，不会遗漏
 BEGIN
-  UPDATE Stock_collection set Remain_Amount=Remain_Amount+NEW.Stockamount WHERE Items_Iname=OLD.Stocks_Iname;
+  DECLARE m_stock integer;
+  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Stocks_Iname=NEW.Stocks_Iname);
+  UPDATE Stock_collection set Remain_Amount=@m_stock+NEW.Stockamount WHERE Items_Iname=OLD.Stocks_Iname;
 END;
 
 CREATE TRIGGER Stocks_BEFORE_DELETE BEFORE DELETE ON Stocks FOR EACH ROW ##--每次删除库存项时，更新库存统计表，剩余数量减去库存项的数量； 将这个库存项加到历史库存项中
 BEGIN
-  UPDATE Stock_collection SC SET Remain_Amount=Remain_Amount-OLD.Stockamount WHERE SC.Items_Iname=OLD.Stocks_Iname;
+  DECLARE m_stock integer;
+  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Stocks_Iname=NEW.Stocks_Iname);
+  UPDATE Stock_collection SC SET Remain_Amount=@m_stock-OLD.Stockamount WHERE SC.Items_Iname=OLD.Stocks_Iname;
     INSERT INTO History_Stocks SET Stockid=OLD.stockid, Stocks_Wid=OLD.Stocks_Wid, Stocks_Iname=OLD.Stocks_Iname, Stockamount=OLD.Stockamount, Stockarea=OLD.Stockarea, Instocktime=OLD.Instocktime, Outstocktime=NOW();
 END;
 
@@ -419,7 +427,7 @@ END;
 CREATE TRIGGER Inbound_details_AFTER_INSERT AFTER INSERT ON Inbound_details FOR EACH ROW##--插入新的入库单详情后，将入库单的总金额插入到对应的入库单数据中。
 BEGIN
   DECLARE m_money integer;
-  SET @m_money := (SELECT Money FROM Suppliers_Order_statistics WHERE Iutbound_id=NEW.Iutbound_id);
+  SET @m_money := (SELECT Money FROM Suppliers_Order_statistics WHERE Inbound_id=NEW.Inbound_id);
   UPDATE Suppliers_Order_statistics SET Money=@m_money+NEW.Amount*NEW.Unit_Price WHERE Inbound_id=NEW.Inbound_id;
 END; $$
 
