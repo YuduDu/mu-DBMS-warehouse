@@ -13,7 +13,7 @@ class dashboard extends base{
   }
 
   function notice(){
-	   $this->display('v/dashboard/index');
+	   $this->display('v/dashboard/add');
   }
   /**
   * 要同时保证Items中的Iname、Staffs中的Sid、Suppliers中的Sid等都存在

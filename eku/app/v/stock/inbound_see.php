@@ -1,5 +1,6 @@
 <h4>入库信息</h4>
 <div class="table-responsive">
+
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>

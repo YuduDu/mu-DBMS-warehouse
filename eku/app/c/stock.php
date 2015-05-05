@@ -28,7 +28,7 @@ class stock extends base{
       $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'stock/inbound_list/s/'.urlencode(strip_tags(trim(seg(4)))).'/p/');
     }
 
-    $this->display('v/stock/inbound_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m),true);
+    $this->display('v/stock/inbound_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m,'map'=>$this->inbound_statistics()),true);
   }
 
   function inbound_see(){
@@ -39,6 +39,11 @@ class stock extends base{
     $Inbound_id = seg(4);
     $list = $this->m->db->query("select * from Inbound_details where Inbound_id = $Inbound_id order by Inbound_id desc");
     $this->display('v/stock/inbound_see',array('res'=>$res,'list'=>$list));
+  }
+
+  private function inbound_statistics(){
+    $res = $this->m->db->query('select * from Suppliers_Order_statistics order by CreateTime desc limit 0,10');
+    return $res;
   }
 
   function outbound_list(){
@@ -94,7 +99,7 @@ class stock extends base{
       $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'stock/inner_list/s/'.urlencode(strip_tags(trim(seg(4)))).'/p/');
     }
 
-    $this->display('v/stock/inner_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m),true);
+    $this->display('v/stock/inner_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m,'map'=>$this->innerbound_statistics()),true);
   
   }
 
@@ -107,7 +112,10 @@ class stock extends base{
     $list = $this->m->db->query("select * from Inbound_details where Inbound_id = $Inbound_id order by Inbound_id desc");
     $this->display('v/stock/inbound_see',array('res'=>$res,'list'=>$list));
   }
-
+  private function innerbound_statistics(){
+    $res = $this->m->db->query('select * from Inner_Trasition order by Time desc limit 0,10');
+    return $res;
+  }
 
 
 }

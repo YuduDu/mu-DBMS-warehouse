@@ -15,7 +15,7 @@ class account extends base{
 			session_start();
 			$_SESSION['STOCK_USER'] = $res[0]['Username'];
       $_SESSION['STOCK_Sid'] = $res[0]['Staffs_Sid'];
-			redirect('?/dashboard/add');
+			redirect('?/dashboard/notice');
 		}else{
 			$msg = 'Wrong account or password !';
 		}

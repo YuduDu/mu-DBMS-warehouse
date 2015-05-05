@@ -1,4 +1,5 @@
 <div class="table-responsive">
+<div id="canvasDiv"></div><br>
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
@@ -29,3 +30,40 @@
   </table>
   <?php echo $pagination;?>
 </div>
+
+
+<script type="text/javascript">
+  $(function(){
+    var val = [];
+    var days = [];
+    
+    <?php while($pop = array_pop($map)) {?>
+      val.push(<?php echo $pop['Amount']?$pop['Amount']:0;?>);
+      days.push('<?php echo date('m-d H:i',strtotime($pop['Time']));?>')
+    <?php }?>
+
+    //~ console.log(val);return false;
+      var data = [
+                {
+                  name : '北京',
+                  value: val, //~[-9,1,12,20,26,30,32,29,22,12,0,-6]
+                  color:'#1f7e92',
+                  line_width:3
+                }
+             ];
+      var chart = new iChart.LineBasic2D({
+            render : 'canvasDiv',
+            data: data,
+            title : '内部转换单统计',
+            width : 970,
+            height : 400,
+            coordinate:{height:'90%',background_color:'#f6f9fa'},
+            sub_option:{
+              hollow_inside:false,//设置一个点的亮色在外环的效果
+              point_size:16
+            },
+            labels: days
+          });
+      chart.draw();
+    });
+</script>
