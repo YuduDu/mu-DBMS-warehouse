@@ -23,17 +23,18 @@ $m->key = 'Inbound_id';
         <td><?php echo $v['Approver_id']?></td>
         <td><?php echo $v['Suppliers_Sid']?></td>
         <td><?php echo $v['Deliverer']?></td>
-        <td>
+        <td><a href="?/stock/inbound_see/Inbound_id/<?php echo $v['Inbound_id'];?>">查看</a></td>
+        <!-- <td>
           <?php
-            $r = $m->get_one($v['Inbound_id']);
-            echo 'Item Code:'.$r['Inbound_Iname'].'<br>'
-            .'Amount:'.$r['Amount'].'<br>'
-            .'Unit:'.$r['Unit_Price'].'<br>'
-            .'Stock Code:'.$r['Inbound_Stockid'].'<br>'
-            .'Warehouse Code:'.$r['Warehouse_Wid'];
+            //$r = $m->get_one($v['Inbound_id']);
+            //echo 'Item Code:'.$r['Inbound_Iname'].'<br>'
+            //.'Amount:'.$r['Amount'].'<br>'
+            //.'Unit:'.$r['Unit_Price'].'<br>'
+            //.'Stock Code:'.$r['Inbound_Stockid'].'<br>'
+            //.'Warehouse Code:'.$r['Warehouse_Wid'];
           ?>
-        </td>
-  			<!--<td><a href="?/warehouse/edit/Wid/<?php echo $v['Wid'];?>">编辑</a></td>-->
+        </td> -->
+  			<!--<td><a href="?/warehouse/edit/Wid/<?php //echo $v['Wid'];?>">编辑</a></td>-->
   		</tr>
   		<?php }?>
     	</tbody>

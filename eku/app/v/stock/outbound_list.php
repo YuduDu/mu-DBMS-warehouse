@@ -25,17 +25,7 @@ $m->key = 'Outbound_id';
         <td><?php echo $v['Createtime']?></td>
         <td><?php echo $v['Approver_id']?></td>
         <td><?php echo $v['Consignee']?></td>
-        <td>
-          <?php
-            $r = $m->get_one($v['Outbound_id']);
-            echo 'Item Code:'.$r['Outbound_Iname'].'<br>'
-            .'Amount:'.$r['Amount'].'<br>'
-            .'Unit_price:'.$r['Unit_price'].'<br>'
-            .'Stock Code:'.$r['Outbound_Stockid'].'<br>'
-            .'Warehouse Code:'.$r['Warehouse_Wid'];
-          ?>
-        </td>
-  			<!--<td><a href="?/warehouse/edit/Wid/<?php echo $v['Wid'];?>">编辑</a></td>-->
+        <td><a href="?/stock/outbound_see/Outbound_id/<?php echo $v['Outbound_id'];?>">查看</a></td>
   		</tr>
   		<?php }?>
     	</tbody>
