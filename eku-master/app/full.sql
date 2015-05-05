@@ -380,13 +380,13 @@ DROP TRIGGER IF EXISTS Inbound_details_AFTER_INSERT;
 DELIMITER $$
 CREATE TRIGGER Outbound_AFTER_INSERT AFTER INSERT ON Outbound FOR EACH ROW ##--每次向Outbound中插入数据之后，将出货单编号，客户编号和创建时间插入客户出货单统计表中
 BEGIN
-  INSERT INTO Customer_Order_statistics SET Outbound_id=NEW.Outbound_id, Cid=NEW.Customer_Cid, CreateTime=New.CreateTime,Money=0;
+  INSERT INTO Customer_Order_statistics SET Outbound_id=NEW.Outbound_id, Cid=NEW.Customer_Cid, CreateTime=New.CreateTime;
 END;
 
 CREATE TRIGGER Outbound_details_AFTER_INSERT AFTER INSERT ON Outbound_details FOR EACH ROW ##--每次向出货单详情Outbound_detail中插入数据之后，根据出货单详情更新客户出货单统计表的总金额
 BEGIN
   DECLARE m_money integer;
-  SET @m_money := (SELECT Money FROM Customer_Order_statistics WHERE Outbound_id=NEW.Outbound_id);
+  SET @m_money := (SELECT Money FROM Outbound_details WHERE Outbound_id=NEW.Outbound_id);
   UPDATE Customer_Order_statistics SET Money=@m_money+NEW.Amount*NEW.Unit_price WHERE Outbound_id=NEW.Outbound_id;
 END;
 
