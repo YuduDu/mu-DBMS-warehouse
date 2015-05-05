@@ -380,12 +380,14 @@ DROP TRIGGER IF EXISTS Inbound_details_AFTER_INSERT;
 DELIMITER $$
 CREATE TRIGGER Outbound_AFTER_INSERT AFTER INSERT ON Outbound FOR EACH ROW ##--每次向Outbound中插入数据之后，将出货单编号，客户编号和创建时间插入客户出货单统计表中
 BEGIN
-  INSERT INTO Customer_Order_statistics SET Outbound_id=NEW.Outbound_id, Cid=NEW.Customer_Cid, CreateTime=New.CreateTime;
+  INSERT INTO Customer_Order_statistics SET Outbound_id=NEW.Outbound_id, Cid=NEW.Customer_Cid, CreateTime=New.CreateTime,Money=0;
 END;
 
 CREATE TRIGGER Outbound_details_AFTER_INSERT AFTER INSERT ON Outbound_details FOR EACH ROW ##--每次向出货单详情Outbound_detail中插入数据之后，根据出货单详情更新客户出货单统计表的总金额
 BEGIN
-  UPDATE Customer_Order_statistics SET Money=Money+NEW.Amount*NEW.Unit_price WHERE Outbound_id=NEW.Outbound_id;
+  DECLARE m_money integer;
+  SET @m_money := (SELECT Money FROM Customer_Order_statistics WHERE Outbound_id=NEW.Outbound_id);
+  UPDATE Customer_Order_statistics SET Money=@m_money+NEW.Amount*NEW.Unit_price WHERE Outbound_id=NEW.Outbound_id;
 END;
 
 CREATE TRIGGER Stocks_AFTER_INSERT AFTER INSERT ON Stocks FOR EACH ROW ##--每次有新的库存项时，刷新库存统计表，如果该物品已经存在就更新剩余数量，如果不存在就新建一行数据
@@ -411,12 +413,14 @@ END;
 
 CREATE TRIGGER Inbound_AFTER_INSERT AFTER INSERT ON Inbound FOR EACH ROW ##--插入新的入库单后，将新的入库单信息插入供应商入库单统计表中
 BEGIN
-  INSERT INTO Suppliers_Order_statistics SET Sid=NEW.Suppliers_Sid, Inbound_id=NEW.Inbound_id, CreateTime=NEW.CreateTime;
+  INSERT INTO Suppliers_Order_statistics SET Sid=NEW.Suppliers_Sid, Inbound_id=NEW.Inbound_id, CreateTime=NEW.CreateTime,Money=0;
 END;
 
 CREATE TRIGGER Inbound_details_AFTER_INSERT AFTER INSERT ON Inbound_details FOR EACH ROW##--插入新的入库单详情后，将入库单的总金额插入到对应的入库单数据中。
 BEGIN
-  UPDATE Suppliers_Order_statistics SET Money=Money+NEW.Amount*NEW.Unit_Price WHERE Inbound_id=NEW.Inbound_id;
+  DECLARE m_money integer;
+  SET @m_money := (SELECT Money FROM Suppliers_Order_statistics WHERE Iutbound_id=NEW.Iutbound_id);
+  UPDATE Suppliers_Order_statistics SET Money=@m_money+NEW.Amount*NEW.Unit_Price WHERE Inbound_id=NEW.Inbound_id;
 END; $$
 
 DELIMITER $$
