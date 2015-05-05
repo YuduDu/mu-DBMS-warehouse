@@ -177,12 +177,11 @@ ENGINE = InnoDB;
 ##-- Table Stock_collection 每个物品的库存统计表
 
 CREATE TABLE IF NOT EXISTS Stock_collection (
-  Iid INT NOT NULL,  ##额外增加
   Remain_Amount FLOAT NOT NULL,##--剩余的数量
   Items_Iname VARCHAR(100) NOT NULL,##--物品的名称
   PRIMARY KEY (Items_Iname),
-  Minimum FLOAT NOT NULL,##--警戒的最小值
-  Maximum FLOAT NOT NULL,##--警戒的最大值
+  Minimum FLOAT NOT NULL DEFAULT 500,##--警戒的最小值
+  Maximum FLOAT NOT NULL DEFAULT 4000,##--警戒的最大值
   INDEX Stock_collection_Items1_idx (Items_Iname ASC),
   CONSTRAINT Stock_collection_Iname
     FOREIGN KEY (Items_Iname)
@@ -362,8 +361,8 @@ CREATE TABLE IF NOT EXISTS Inner_Trasition (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-insert into Staff_Category(SCid,SType) VALUES(111,'第一个员工');
-insert into Staffs(Sname,SCid,Sphone) VALUES('一号',111,'18612929171');
+insert into Staff_Category(SCid,SType) VALUES(111,'First_Staff');
+insert into Staffs(Sname,SCid,Sphone) VALUES('1hao',111,'18612929171');
 insert into User(Username,Password,Staffs_Sid) VALUES('admin','admin',1);
 
 ##-- create triggers
@@ -393,28 +392,28 @@ END;
 CREATE TRIGGER Stocks_AFTER_INSERT AFTER INSERT ON Stocks FOR EACH ROW ##--每次有新的库存项时，刷新库存统计表，如果该物品已经存在就更新剩余数量，如果不存在就新建一行数据
 BEGIN
   DECLARE m_stock integer;
-  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Stocks_Iname=NEW.Stocks_Iname);
+  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Items_Iname=NEW.Stocks_Iname);
  INSERT INTO Stock_collection (Items_Iname, Remain_Amount) VALUES (NEW.Stocks_Iname, NEW.Stockamount) ON DUPLICATE KEY UPDATE Remain_Amount=@m_stock+NEW.Stockamount;
 END;
 
 CREATE TRIGGER Stocks_BEFORE_UPDATE BEFORE UPDATE ON Stocks FOR EACH ROW ##--每次更新库存项之前，更新库存统计表，减去当前要更新的库存项的量，刷新剩余数量。
 BEGIN
   DECLARE m_stock integer;
-  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Stocks_Iname=NEW.Stocks_Iname);
+  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Items_Iname=OLD.Stocks_Iname);
   UPDATE Stock_collection set Remain_Amount=@m_stock-OLD.Stockamount WHERE Items_Iname=OLD.Stocks_Iname;
 END;
 
 CREATE TRIGGER Stocks_AFTER_UPDATE AFTER UPDATE ON Stocks FOR EACH ROW ##--每次更新库存项之后，更新库存统计表，加上更新后的库存项的量，刷新剩余数量。这样能保证一直剩余数量一直在更新，不会遗漏
 BEGIN
   DECLARE m_stock integer;
-  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Stocks_Iname=NEW.Stocks_Iname);
+  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Items_Iname=NEW.Stocks_Iname);
   UPDATE Stock_collection set Remain_Amount=@m_stock+NEW.Stockamount WHERE Items_Iname=OLD.Stocks_Iname;
 END;
 
 CREATE TRIGGER Stocks_BEFORE_DELETE BEFORE DELETE ON Stocks FOR EACH ROW ##--每次删除库存项时，更新库存统计表，剩余数量减去库存项的数量； 将这个库存项加到历史库存项中
 BEGIN
   DECLARE m_stock integer;
-  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Stocks_Iname=NEW.Stocks_Iname);
+  SET @m_stock := (SELECT Remain_Amount FROM Stock_collection WHERE Items_Iname=OLD.Stocks_Iname);
   UPDATE Stock_collection SC SET Remain_Amount=@m_stock-OLD.Stockamount WHERE SC.Items_Iname=OLD.Stocks_Iname;
     INSERT INTO History_Stocks SET Stockid=OLD.stockid, Stocks_Wid=OLD.Stocks_Wid, Stocks_Iname=OLD.Stocks_Iname, Stockamount=OLD.Stockamount, Stockarea=OLD.Stockarea, Instocktime=OLD.Instocktime, Outstocktime=NOW();
 END;
