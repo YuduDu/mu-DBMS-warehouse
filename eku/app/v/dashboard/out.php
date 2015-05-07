@@ -14,7 +14,7 @@
     <input type="text" name="Consignee" class="form-control" >
   </div><br>
 
-  <label>选择出货单组</label>
+  <label>Choose Stock</label>
   <select class="form-control" name="Stock_id_old">
     <?php foreach($stock as $v){ ?>
     <option value="<?php echo $v['Stockid'];?>"><?php echo $v['Stocks_Iname'].' Warehouse:'.$v['Stocks_Wid'].', Amount'.$v['Stockamount'];?></option>
@@ -27,5 +27,5 @@
   <label style="margin-left:24px">Unit Price</label>
     <input type="text" name="unitprice" class="form-control" >
   </div>
-  <br><div class="form-group"><button type="submit" name="outBound" class="btn btn-default">添加出货</button></div>
+  <br><div class="form-group"><button type="submit" name="outBound" class="btn btn-default">Create Outbound</button></div>
 </form>

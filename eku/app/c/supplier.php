@@ -75,10 +75,15 @@ class supplier extends base{
   function see_supplier(){
     $sup = $this->m->supplier_getBySid(seg(4));
     $suppliers_order = $this->m->suppliers_order_statistics_getBySid(seg(4));
-    $this->display('v/supplier/supplier_see',array('sup'=>$sup[0],'suppliers_order'=>$suppliers_order));
+    $this->display('v/supplier/supplier_see',array('sup'=>$sup[0],'suppliers_order'=>$suppliers_order,'map'=>$this->supplier_statistics()));
   }
 
 
+  private function supplier_statistics(){
+    
+    $res = $this->m->suppliers_order_statistics_getBySid(seg(4));
+    return $res;
+  }
   
 
 }

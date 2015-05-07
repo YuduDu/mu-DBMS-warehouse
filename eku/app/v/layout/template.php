@@ -52,7 +52,7 @@
           <div class="form-group">
             <input class="btn btn-default" type="submit" value="Search" name="search">
           </div>
-          <a  target="_blank" href="?/excel_generate/index/space/<?php echo $space;?>" class="btn btn-default btn-default" style="float:right;" role="button">生成Excel</a>
+          <a  target="_blank" href="?/excel_generate/index/space/<?php echo $space;?>" class="btn btn-default btn-default" style="float:right;" role="button">Export Excel</a>
         </form>
 
         <?php echo $al_content;?>

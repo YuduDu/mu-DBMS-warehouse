@@ -14,7 +14,7 @@ $m->key = 'Inbound_id';
         <th>Supplier ID</th>
         <th>Deliverer</th>
         <th>Inbound Detail</th>
-        <!--<th>操作</th>-->
+        
   		</tr>
       </thead>
       <tbody>
@@ -25,7 +25,7 @@ $m->key = 'Inbound_id';
         <td><?php echo $v['Approver_id']?></td>
         <td><?php echo $v['Suppliers_Sid']?></td>
         <td><?php echo $v['Deliverer']?></td>
-        <td><a href="?/stock/inbound_see/Inbound_id/<?php echo $v['Inbound_id'];?>">查看</a></td>
+        <td><a href="?/stock/inbound_see/Inbound_id/<?php echo $v['Inbound_id'];?>">info</a></td>
         <!-- <td>
           <?php
             //$r = $m->get_one($v['Inbound_id']);

@@ -1,4 +1,4 @@
-<h4>出库信息</h4>
+<h4>Outbound Information</h4>
 <div class="table-responsive">
   <table class="table table-striped table-bordered">
   	<thead>
@@ -22,7 +22,7 @@
   </table>
 </div>
 
-<h4>出库清单</h4>
+<h4>Outbound list</h4>
 <div class="table-responsive">
   <table class="table table-striped table-bordered">
     <thead>

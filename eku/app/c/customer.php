@@ -47,7 +47,7 @@ class customer extends base{
   function customer_detail(){
     $customer = $this->m->customer_getByCid(seg(4));
     $customer_order = $this->m->customer_order_statistics_getByCid(seg(4));
-    $this->display('v/customer/customer_detail',array('customer'=>$customer[0],'customer_order'=>$customer_order));
+    $this->display('v/customer/customer_detail',array('customer'=>$customer[0],'customer_order'=>$customer_order,'map'=>$this->customer_statistics()));
   }
 
   function customer_edit(){
@@ -66,6 +66,12 @@ class customer extends base{
 
     $res = $this->m->get_one(seg(4));
     $this->display('v/customer/customer_edit',array('res'=>$res));
+  }
+
+  private function customer_statistics(){
+    
+    $res = $this->m->customer_order_statistics_getByCid(seg(4));
+    return $res;
   }
 
 }
