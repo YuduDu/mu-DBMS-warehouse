@@ -7,6 +7,7 @@ class base extends c{
   public $addParams;
   public $upParams;
   public $searchParams;
+  public $space;
   function __construct($needCheck=true)
   {
     session_start();
@@ -39,6 +40,7 @@ class base extends c{
 
     $this->err = array();
     $this->msg = '';
+    $this->space = '';
 
     $this->menu = array(
           'dashboard'=>'Dashboard',
@@ -118,6 +120,7 @@ class base extends c{
     $param['tabCell'] = $this->tabCell;
     $param['err'] = $this->err;
     $param['msg'] = $this->msg;
+    $param['space'] = $this->space;
     $param['needSearch'] = $needSearch;
     header("Content-type: text/html; charset=utf-8");
     view('v/layout/template',$param);

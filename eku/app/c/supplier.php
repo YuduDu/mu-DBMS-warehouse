@@ -28,6 +28,8 @@ class supplier extends base{
         $tot = $this->m->count($where);
         $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'supplier/supplier_list/s/'.urlencode(strip_tags(trim(seg(4)))).'/p/');
       }
+
+       $this->space = 'Suppliers';
       //$res = $this->m->supplier_getAll();
       //$this->display('v/supplier/supplier_list',array('res'=>$res),true);
       $this->display('v/supplier/supplier_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m),true);

@@ -27,6 +27,7 @@ class customer extends base{
       $tot = $this->m->count($where);
       $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'customer/customer_list/s/'.urlencode(strip_tags(trim(seg(4)))).'/p/');
     }
+    $this->space = 'Customers';
 
     $this->display('v/customer/list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m),true);
   }

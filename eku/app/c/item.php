@@ -29,6 +29,7 @@ class item extends base{
       $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'item/item_category_list/s/'.urlencode(strip_tags(trim(seg(4)))).'/p/');
     }
 
+    $this->space = 'Item_Category';
     //$res = $this->m->item_Category_getAll();
     $this->display('v/item/item_category_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m),true);
   }

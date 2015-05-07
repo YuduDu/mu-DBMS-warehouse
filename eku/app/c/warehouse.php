@@ -25,6 +25,8 @@ class warehouse extends base{
         $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'warehouse/warehouse_list/'.urlencode(strip_tags(trim(seg(4)))).'/p/');
     }
     
+    $this->space = 'Warehouses';
+
     $this->display('v/warehouse/warehouse_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m),true);
   }
 

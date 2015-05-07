@@ -28,6 +28,8 @@ class stock extends base{
       $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'stock/inbound_list/s/'.urlencode(strip_tags(trim(seg(4)))).'/p/');
     }
 
+    $this->space = 'Inbound';
+
     $this->display('v/stock/inbound_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m,'map'=>$this->inbound_statistics()),true);
   }
 
@@ -62,6 +64,9 @@ class stock extends base{
       $tot = $this->m->count($where);
       $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'stock/outbound_list/s/'.urlencode(strip_tags(trim(seg(4)))).'/p/');
     }
+
+
+    $this->space = 'Outbound';
 
     $this->display('v/stock/outbound_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m,'map'=>$this->outbound_statistics()),true);
   }
@@ -98,6 +103,7 @@ class stock extends base{
       $tot = $this->m->count($where);
       $pagination = pagination($tot ,  $page_cur, 10 ,BASE.'stock/inner_list/s/'.urlencode(strip_tags(trim(seg(4)))).'/p/');
     }
+    $this->space = 'Inner_Trasition';
 
     $this->display('v/stock/inner_list',array('res'=>$res,'pagination'=>$pagination,'m'=>$this->m,'map'=>$this->innerbound_statistics()),true);
   

@@ -14,6 +14,7 @@ class staff extends base{
   //员工类别列表
   function category_list(){
     $res = $this->m->category_getAll();
+    $this->space = 'Staff_Category';
     $this->display('v/staff/category_list',array('res'=>$res));
   }
 
