@@ -74,6 +74,7 @@ class excel_generate extends base {
 
 		 ob_end_clean();
          $hfile = fopen($filename,"rb") or die("Can not find file: $filename\n");
+         header("export:");
          Header("Content-type: application/octet-stream");
          Header("Content-Transfer-Encoding: binary");
          Header("Accept-Ranges: bytes");
