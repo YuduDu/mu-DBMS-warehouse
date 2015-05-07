@@ -23,12 +23,18 @@ class admin_m extends m {
   }
 
   function admin_getByUsername($username){
+  	if (!ctype_alnum($username)){
+		return null;
+	}
     $res = $this->db->query("select * from User where Username = '".$username."'");
     return $res;
   }
 
   function admin_login($username,$password){
-    $res = $this->db->query("select * from User where Username = '".$username."' AND Password = '".$password."'");
+  	$username=filter_var($username, FILTER_SANITIZE_STRING);
+  	
+	
+   	$res = $this->db->query("select * from User where Username = '".$username."' AND Password = '".$password."'");
     return $res;
   }
 

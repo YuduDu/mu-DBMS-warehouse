@@ -14,7 +14,19 @@ class account extends base{
 		if (!empty($res)){
 			session_start();
 			$_SESSION['STOCK_USER'] = $res[0]['Username'];
-      $_SESSION['STOCK_Sid'] = $res[0]['Staffs_Sid'];
+      		$_SESSION['STOCK_Sid'] = $res[0]['Staffs_Sid'];
+	  		
+			/*
+			 $db_config = array(
+     		 'host'      =>'45.62.107.251', 
+      		 'user'      =>'eku',  
+             'password'  =>'eku',
+             'db_type'   =>'mysql',
+             'default_db'=>'zadmin_eku'
+             );
+
+    		$db = new db($db_config);
+			*//////////
 			redirect('?/dashboard/notice');
 		}else{
 			$msg = 'Wrong account or password !';
