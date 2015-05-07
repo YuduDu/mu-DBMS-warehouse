@@ -39,7 +39,7 @@ class item extends base{
       $err = validate($conf);
       if ( $err === TRUE) {
           $this->m->item_Category_add();
-          $this->msg = '添加成功';
+          $this->msg = 'Add Succeeded';
       }else{
         $this->err = $err;
       }
@@ -59,7 +59,7 @@ class item extends base{
         $this->err = $err;
       }
       $up = $this->m->update($ICname);
-      $this->msg = $up?'修改成功':'修改失败';
+      $this->msg = $up?'Edit Succeeded':'Edit Failed';
     }
     $res = $this->m->get_one($ICname);
     $this->display('v/item/item_category_edit',array('res'=>$res));
@@ -69,7 +69,7 @@ class item extends base{
     $this->m->table = 'Item_Category';
     $this->m->key = 'ICname';
     $this->m->del(urldecode(seg(4)));
-    redirect('?/item/item_category_list','删除成功','',3);
+    redirect('?/item/item_category_list','Delete Succeeded','',3);
   }
 
   function item_see(){
@@ -88,7 +88,7 @@ class item extends base{
       'submitName'=>'item_add', //提交按钮
       'required'=>array('Iname','ICname','Unit'),  //必填字段
       'addCondition'=>false, //排重条件
-      'addConditionMsg'=>'请勿重复添加',  //出现重复时，给出提示文字
+      'addConditionMsg'=>'Repeat information!',  //出现重复时，给出提示文字
       'addExcute'=>array('m'=>$this->m,'method'=>'item_add'),  //执行添加
       'view'=>'v/item/item_add'  //视图
     );
@@ -107,7 +107,7 @@ class item extends base{
         $this->err = $err;
       }
       $up = $this->m->update($Iname);
-      $this->msg = $up?'修改成功':'修改失败';
+      $this->msg = $up?'Edit Succeeded':'Edit Failed';
       $up && redirect('?/item/item_edit/Iname/'.$_POST['Iname'],'','',0);
     }
     $res = $this->m->get_one($Iname);
@@ -118,7 +118,7 @@ class item extends base{
     $this->m->table = 'Items';
     $this->m->key = 'Iname';
     $this->m->del(urldecode(seg(4)));
-    redirect('?/item/item_category_list','删除成功','',3);
+    redirect('?/item/item_category_list','Delete succeeded','',3);
   }
 
   function item_statistics(){

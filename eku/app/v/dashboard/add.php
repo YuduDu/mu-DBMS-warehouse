@@ -14,7 +14,7 @@
 
   <select class="form-control _old_inbound" name="Inbound_id_old" style="margin-left:20px;min-width:240px;">
     <?php foreach($inbound as $v){ ?>
-    <option value="<?php echo $v['Inbound_id'];?>"><?php echo 'ID: '.$v['Inbound_id'].'; Supplier ID:'.$v['Suppliers_Sid'].' ;Deliverer: '.$v['Deliverer'];?></option>
+    <option value="<?php echo $v['Inbound_id'];?>"><?php echo $v['Inbound_id'].'; Supplier ID:'.$v['Suppliers_Sid'].' ;Deliverer: '.$v['Deliverer'];?></option>
     <?php }?>
   </select>
   <br class="_old_inbound">

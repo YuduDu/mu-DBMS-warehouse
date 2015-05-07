@@ -131,6 +131,7 @@ class dashboard extends base{
             //var_dump($post);exit(); 
             $res = $this->m->outbound_detail_add($post);
             if($res !== 0){
+              throw new Exception(intval($stock['Stockid']),2);
               throw new Exception('Failed to create detailed Outbound record.',2);
             }else{
               throw new Exception('Outbound Succeed!',2);

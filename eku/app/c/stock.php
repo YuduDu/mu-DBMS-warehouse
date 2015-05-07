@@ -117,5 +117,11 @@ class stock extends base{
     return $res;
   }
 
+    function inbound_export()
+  {
+    $list = $this->m->db->query("select * from Inbound");
+    $this->excel('v/stock/stock_excel',$list);    
+  }
+
 
 }
