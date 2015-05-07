@@ -46,7 +46,7 @@ $m->key = 'Outbound_id';
     //~ console.log(val);return false;
       var data = [
                 {
-                  name : '北京',
+                  name : 'Outbound',
                   value: val, //~[-9,1,12,20,26,30,32,29,22,12,0,-6]
                   color:'#1f7e92',
                   line_width:3
@@ -55,7 +55,7 @@ $m->key = 'Outbound_id';
       var chart = new iChart.LineBasic2D({
             render : 'canvasDiv',
             data: data,
-            title : '出库单统计',
+            title : 'Outbound Statistic',
             width : 970,
             height : 400,
             coordinate:{height:'90%',background_color:'#f6f9fa'},

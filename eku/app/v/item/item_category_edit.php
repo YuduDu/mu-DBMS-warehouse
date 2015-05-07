@@ -6,9 +6,9 @@
   <div class="form-group">
     <label>Items Type</label>
   <select class="form-control" name="Spec">
-    <option <?php echo $res['Spec']=='原材料'?'selected':'';?> value="原材料">Raw Material</option>
-    <option <?php echo $res['Spec']=='半成品'?'selected':'';?> value="半成品">Semifinished</option>
-    <option <?php echo $res['Spec']=='成品'?'selected':'';?> value="成品">Finished Product</option>
+    <option <?php echo $res['Spec']=='Raw Materials'?'selected':'';?> value="Raw Materials">Raw Material</option>
+    <option <?php echo $res['Spec']=='Semifinished'?'selected':'';?> value="Semifinished">Semifinished</option>
+    <option <?php echo $res['Spec']=='Final Product'?'selected':'';?> value="Final Product">Finished Product</option>
   </select>
   </div>
   
