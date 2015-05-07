@@ -27,8 +27,8 @@ class excel_generate extends base {
 
 		// Set properties
 		//echo date('H:i:s') . " Set properties\n";
-		$objPHPExcel->getProperties()->setCreator("Maarten Balliauw");
-		$objPHPExcel->getProperties()->setLastModifiedBy("Maarten Balliauw");
+		$objPHPExcel->getProperties()->setCreator("2DX");
+		$objPHPExcel->getProperties()->setLastModifiedBy("2DX");
 		$objPHPExcel->getProperties()->setTitle("Office 2007 XLSX Test Document");
 		$objPHPExcel->getProperties()->setSubject("Office 2007 XLSX Test Document");
 		$objPHPExcel->getProperties()->setDescription("Test document for Office 2007 XLSX, generated using PHP classes.");

@@ -8,11 +8,11 @@ function validate($conf = array(),$data = array()){
     $rules = explode('|',$val);
     foreach($rules as $rule){
       switch ($rule ){
-        case 'required':if(!isset($data[$key]) || !$data[$key] )$err[$key]="不能为空";
+        case 'required':if(!isset($data[$key]) || !$data[$key] )$err[$key]="Can't be null";
           break;
-        case 'numonly':if(!is_num($data[$key]))$err[$key]="只能是数字";
+        case 'numonly':if(!is_num($data[$key]))$err[$key]="Only Number";
           break;
-        case 'email':if(!is_email($data[$key]))$err[$key]="email地址错误";
+        case 'email':if(!is_email($data[$key]))$err[$key]="Wrong Input format";
           break;
         default:
           if(!function_exists($rule))exit('Validate function '.$rule.'  does exist');
@@ -53,7 +53,7 @@ function pagination($tot , $cur = 1, $psize = 30 , $base_url = '')
   }
 
   if( $cur > 10 ) {
-    $result.='<li><a HREF="'.$base_url.'1" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li><li><a HREF="'.$base_url.($startp*10-9).'">上10页</a></li>';
+    $result.='<li><a HREF="'.$base_url.'1" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li><li><a HREF="'.$base_url.($startp*10-9).'">Last 10</a></li>';
   }
 
   for($i=$startp*10+1;$i<=$total;$i++)
@@ -63,7 +63,7 @@ function pagination($tot , $cur = 1, $psize = 30 , $base_url = '')
   }
 
   if( $tot_page>($startp*10+10) )
-    $result.=' <li><a HREF="'.$base_url.($startp*10+11).'" aria-label="Next"><span aria-hidden="true"> 下10页 </span></a></li>';
+    $result.=' <li><a HREF="'.$base_url.($startp*10+11).'" aria-label="Next"><span aria-hidden="true"> Next 10 </span></a></li>';
     $result.= '</ul></nav>';
     return $result;
 }
@@ -84,11 +84,11 @@ function __time($then) // 格式化时间 例如 ： 10分钟钱
   $now=time();
   $time=intval(($now-$then)/60);
   if($time>0) {
-    if($time < 60 )return "$time 分钟前";
+    if($time < 60 )return "$time Minutes";
     else
     {
       $time=intval($time/60);
-      if($time<12)return "$time 小时前";
+      if($time<12)return "$time Minutes";
     }
   }
   return date('Y-m-d',$then);

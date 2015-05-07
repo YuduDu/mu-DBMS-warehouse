@@ -3,7 +3,7 @@
   	<thead>
   		<tr>
   			<th>Staff Class ID</th>
-  			<th>Staff Class Details</th>
+  			<th>Staff Class Describe</th>
   			<th>Edit</th>
   		</tr>
       </thead>

@@ -25,7 +25,7 @@ $m->key = 'Outbound_id';
         <td><?php echo $v['Createtime']?></td>
         <td><?php echo $v['Approver_id']?></td>
         <td><?php echo $v['Consignee']?></td>
-        <td><a href="?/stock/outbound_see/Outbound_id/<?php echo $v['Outbound_id'];?>">查看</a></td>
+        <td><a href="?/stock/outbound_see/Outbound_id/<?php echo $v['Outbound_id'];?>">Check</a></td>
   		</tr>
   		<?php }?>
     	</tbody>

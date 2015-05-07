@@ -2,7 +2,6 @@
 $m->table = 'Inbound_details';
 $m->key = 'Inbound_id';
 ?>
-<div class="form-group"><button type="submit" class="btn btn-default"><a href="?/stock/inbound_export/" >Export</button>
 <div id="canvasDiv"></div><br>
 <div class="table-responsive">
   <table class="table table-striped table-bordered">

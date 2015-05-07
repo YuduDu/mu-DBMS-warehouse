@@ -24,11 +24,13 @@
     <input type="text" name="Items_Iname" class="form-control" >
   </div>
 
-
+  <!--<script type="text/javascript">
+  if(Operate="O") -->
   <div class="form-group">
     <label style="margin-left:78px">Stock Code</label>
     <input type="text" name="Stockid" class="form-control" >
   </div>
+  <!--</script>-->
   
   <br><div class="form-group"><button type="submit" name="innert_trasition_add" class="btn btn-default">ADD</button></div>
 </form>

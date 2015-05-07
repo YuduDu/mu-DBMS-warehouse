@@ -51,7 +51,7 @@
     <input type="text" name="Unit_Price" class="form-control" >
   </div>
   
-  <br><div class="form-group"><button type="submit" name="addInBound" class="btn btn-default">Add this Item</button></div>
+  <br><div class="form-group"><button type="submit" name="addInBound" class="btn btn-default">ADD</button></div>
 </form>
 
 <script type="text/javascript">

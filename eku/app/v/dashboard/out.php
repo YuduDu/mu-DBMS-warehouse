@@ -27,5 +27,5 @@
   <label style="margin-left:24px">Unit Price</label>
     <input type="text" name="unitprice" class="form-control" >
   </div>
-  <br><div class="form-group"><button type="submit" name="outBound" class="btn btn-default">Create Outbound</button></div>
+  <br><div class="form-group"><button type="submit" name="outBound" class="btn btn-default">ADD</button></div>
 </form>
