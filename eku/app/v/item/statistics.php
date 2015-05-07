@@ -3,7 +3,7 @@
   	<thead>
   		<tr>
   			<th>Remain_Amount</th>
-  			<th>Items_Iname</th>
+  			<th>Item Code</th>
   			<th>Minimum</th>
         <th>Maximum</th>
   		</tr>

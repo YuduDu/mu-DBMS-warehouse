@@ -4,7 +4,7 @@
     <input type="text" value="<?php echo $res['Iname'];?>" name="Iname" class="form-control">
   </div>
   <div class="form-group">
-    <label>Item Class</label>
+    <label>Item Category</label>
     <input type="text" value="<?php echo $res['ICname'];?>" name="ICname" class="form-control">
   </div>
   <div class="form-group">
