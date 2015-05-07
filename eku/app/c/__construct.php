@@ -50,8 +50,8 @@ class base extends c{
           'customer'=>'Customer',
           'warehouse'=>'Warehouse',
           'staff'=>'Staff',
-          'admin'=>'System',
-          'systemInfo'=>'System Info',
+          'admin'=>'Admin',
+          'systemInfo'=>'System',
         'logout'=>'Log Out'
    );
 
