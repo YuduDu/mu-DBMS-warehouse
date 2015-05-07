@@ -1,6 +1,6 @@
 <form class="form-inline" method="post" action="">
   <div class="form-group">
-    <label>Items Class</label>
+    <label>Items Category</label>
     <input type="text" name="ICname" class="form-control">
   </div>
   <div class="form-group">
