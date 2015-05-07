@@ -1,6 +1,6 @@
 <form class="form-inline" method="post" action="">
   <div class="form-group">
-    <label>Customer Company Name</label>
+    <label>Customer  Name</label>
     <input type="text" value="<?php echo $res['Cname'];?>" name="Cname" class="form-control">
   </div>
   <div class="form-group">
@@ -8,7 +8,7 @@
     <input type="text" name="Ccontact" value="<?php echo $res['Ccontact'];?>" class="form-control">
   </div>
   <div class="form-group">
-    <label>Company Address</label>
+    <label>Customer Address</label>
     <input type="text" name="Caddress" value="<?php echo $res['Caddress'];?>" class="form-control">
   </div>
   <div class="form-group">

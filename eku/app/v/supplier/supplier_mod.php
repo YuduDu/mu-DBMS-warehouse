@@ -1,10 +1,10 @@
 <form class="form-inline" method="post" action="">
   <div class="form-group">
-    <label>Supplier Company Name</label>
+    <label>Supplier Name</label>
     <input type="text" value="<?php echo $res['Sname'];?>" name="Sname" class="form-control">
   </div>
   <div class="form-group">
-    <label>Supplier Company Contact</label>
+    <label>Supplier Contact</label>
     <input type="text"  value="<?php echo $res['Scontact'];?>"  name="Scontact" class="form-control">
   </div>
   <div class="form-group">

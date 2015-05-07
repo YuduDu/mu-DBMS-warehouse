@@ -3,10 +3,10 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-        	<th>ID</th>
-  			<th>Comapny Name</th>
-  			<th>Comany Contact Name</th>
-        	<th>Company Address</th>
+        	<th>Customer ID</th>
+  			<th>Customer Name</th>
+  			<th>Customer Contact Name</th>
+        	<th>Customer Address</th>
         	<th>Zip code</th>
         	<th>Phone</th>
         	<th>Bank Name</th>

@@ -2,10 +2,10 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-        <th>Company Code</th>
-  			<th>Company Name</th>
-  			<th>Contact Name</th>
-        <th>Company Address</th>
+        <th>Customer ID</th>
+  			<th>Customer Name</th>
+  			<th>Customer Contact Name</th>
+        <th>Customer Address</th>
         <th>Zip Code</th>
         <th>Phone</th>
         <th>Bank Name</th>

@@ -4,9 +4,9 @@
   	<thead>
   		<tr>
         <th>Supplier ID</th>
-  			<th>Supplier Company Name</th>
-  			<th>Supplier Company Contact</th>
-        <th>Supplier Comnpany Address</th>
+  			<th>Supplier Name</th>
+  			<th>Supplier Contact</th>
+        <th>Supplier Address</th>
         <th>Zip code</th>
         <th>Phone</th>
         <th>Bank Name</th>
