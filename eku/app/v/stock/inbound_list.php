@@ -2,6 +2,7 @@
 $m->table = 'Inbound_details';
 $m->key = 'Inbound_id';
 ?>
+<div class="form-group"><button type="submit" class="btn btn-default"><a href="?/stock/inbound_export/" >Export</button>
 <div id="canvasDiv"></div><br>
 <div class="table-responsive">
   <table class="table table-striped table-bordered">
@@ -57,7 +58,7 @@ $m->key = 'Inbound_id';
     //~ console.log(val);return false;
       var data = [
                 {
-                  name : '北京',
+                  name : 'Inbound',
                   value: val, //~[-9,1,12,20,26,30,32,29,22,12,0,-6]
                   color:'#1f7e92',
                   line_width:3
@@ -66,7 +67,7 @@ $m->key = 'Inbound_id';
       var chart = new iChart.LineBasic2D({
             render : 'canvasDiv',
             data: data,
-            title : '入库单统计',
+            title : 'Inbound Statistics',
             width : 970,
             height : 400,
             coordinate:{height:'90%',background_color:'#f6f9fa'},

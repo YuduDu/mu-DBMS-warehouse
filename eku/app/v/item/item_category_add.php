@@ -6,9 +6,9 @@
   <div class="form-group">
     <label>Items Type</label>
   <select class="form-control" name="Spec">
-    <option value="原材料">Raw material</option>
-    <option value="半成品">Semifinished</option>
-    <option value="成品">Finished Product</option>
+    <option value="Raw material">Raw material</option>
+    <option value="Semifinished">Semifinished</option>
+    <option value="Finished">Finished Product</option>
   </select>
   </div>
   

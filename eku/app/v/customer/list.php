@@ -2,9 +2,9 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-        <th>Customer Company Name</th>
-  			<th>Customer Contact Name</th>
-  			<th>Customer Contact Name</th>
+        <th>Company Code</th>
+  			<th>Company Name</th>
+  			<th>Contact Name</th>
         <th>Company Address</th>
         <th>Zip Code</th>
         <th>Phone</th>
@@ -31,4 +31,5 @@
   		<?php }?>
     	</tbody>
   </table>
+  <?php echo $pagination;?>
 </div>
