@@ -66,7 +66,7 @@
     //~ console.log(val);return false;
       var data = [
                 {
-                  name : '北京',
+                  name : 'Customer',
                   value: val, //~[-9,1,12,20,26,30,32,29,22,12,0,-6]
                   color:'#1f7e92',
                   line_width:3

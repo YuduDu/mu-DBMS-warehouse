@@ -29,6 +29,6 @@
   </div>
   
   <br><div class="form-group">
-    <button type="submit" name="customer_add" class="btn btn-default">添加</button>
+    <button type="submit" name="customer_add" class="btn btn-default">ADD</button>
   </div>
 </form>
