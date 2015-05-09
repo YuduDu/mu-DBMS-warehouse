@@ -1,6 +1,6 @@
 <form class="form-inline" method="post" action="">
   <div class="form-group">
-    <label>Items Category</label>
+    <label>Items Class</label>
     <input type="text" value="<?php echo $res['ICname'];?>" name="ICname" class="form-control">
   </div>
   <div class="form-group">

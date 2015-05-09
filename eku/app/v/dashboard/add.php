@@ -24,7 +24,7 @@
       <label>Supplier ID</label>
       <input type="text" name="Suppliers_Sid" class="form-control">
     </div>
-    <div class="form-group" style="margin-left:48px">
+    <div class="form-group">
       <label>Deliverer:</label>
       <input type="text" name="Deliverer" class="form-control" >
     </div>

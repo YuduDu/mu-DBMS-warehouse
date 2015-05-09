@@ -3,7 +3,7 @@
   	<thead>
   		<tr>
   			<th>Item Code</th>
-  			<th>Item Catogory</th>
+  			<th>Item Class</th>
         <th>Unit</th>
         <th>Edit</th>
         <th>Delete</th>

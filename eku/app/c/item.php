@@ -70,7 +70,7 @@ class item extends base{
     $this->m->table = 'Item_Category';
     $this->m->key = 'ICname';
     $this->m->del(urldecode(seg(4)));
-    redirect('?/item/item_category_list','Delete Succeeded','',3);
+    redirect('?/item/item_category_list','Done','',3);
   }
 
   function item_see(){
@@ -119,7 +119,7 @@ class item extends base{
     $this->m->table = 'Items';
     $this->m->key = 'Iname';
     $this->m->del(urldecode(seg(4)));
-    redirect('?/item/item_category_list','Delete succeeded','',3);
+    redirect('?/item/item_category_list','Done','',3);
   }
 
   function item_statistics(){

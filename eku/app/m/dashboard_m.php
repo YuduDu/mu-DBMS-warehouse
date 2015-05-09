@@ -34,6 +34,11 @@ class dashboard_m extends m {
       return $res;
   }
 
+  function outbound_getAll(){
+      $res = $this->db->query("select * from Outbound order by Outbound_id desc");
+      return $res;
+  }
+
   function inbound_detail_getAll(){
       $res = $this->db->query("select * from Inbound_details order by Inbound_id desc");
       return $res;

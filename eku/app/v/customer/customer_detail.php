@@ -3,10 +3,10 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-        	<th>Customer ID</th>
-  			<th>Customer Name</th>
-  			<th>Customer Contact Name</th>
-        	<th>Customer Address</th>
+        	<th>ID</th>
+  			<th>Comapny Name</th>
+  			<th>Comany Contact Name</th>
+        	<th>Company Address</th>
         	<th>Zip code</th>
         	<th>Phone</th>
         	<th>Bank Name</th>
@@ -66,7 +66,7 @@
     //~ console.log(val);return false;
       var data = [
                 {
-                  name : 'Customer',
+                  name : '北京',
                   value: val, //~[-9,1,12,20,26,30,32,29,22,12,0,-6]
                   color:'#1f7e92',
                   line_width:3

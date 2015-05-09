@@ -70,7 +70,7 @@ class base extends c{
               'warehouse_list'=>'Warehouse List','warehouse_add'=>'Add Warehouse'),
           'systemInfo'=>array('info'=>'System Information','account'=>'New Password'),
           'staff'=>array(
-              'category_list'=>'Staff Class','category_add'=>'New Staff Class','staff_list'=>'Staff List','staff_add'=>'Add New Staff'),
+              'category_list'=>'Staff Category','category_add'=>'New Staff Category','staff_list'=>'Staff List','staff_add'=>'Add New Staff'),
           'admin'=>array(
               'admin_list'=>'User List','admin_add'=>'Add New User'),
           'logout'=>'Log Out'
@@ -222,7 +222,7 @@ class base extends c{
         }else{
           $m = $addExcute['m'];
           $m->$addExcute['method']();
-          $this->msg = 'Succeed';
+          $this->msg = 'Done';
         }
       }else{
         $this->err = $err;

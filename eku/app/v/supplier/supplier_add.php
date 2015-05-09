@@ -1,10 +1,10 @@
 <form class="form-inline" method="post" action="">
   <div class="form-group">
-    <label>Supplier Name</label>
+    <label>Supplier Company Name</label>
     <input type="text" name="Sname" class="form-control">
   </div>
   <div class="form-group">
-    <label>Supplier Contact</label>
+    <label>Supplier Company Contact</label>
     <input type="text" name="Scontact" class="form-control">
   </div>
   <div class="form-group">
@@ -33,6 +33,6 @@
   </div>
   
   <br><div class="form-group">
-    <button type="submit" name="supplier_add" class="btn btn-default">ADD</button>
+    <button type="submit" name="supplier_add" class="btn btn-default">添加</button>
   </div>
 </form>

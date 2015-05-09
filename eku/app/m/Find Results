@@ -1,0 +1,57 @@
+Searching 859 files for "inbound_getAll"
+
+/Users/yudu/Google Drive/study/2015 Spring/DBMS/Final Project/mu-DBMS-warehouse1/dev/app/c/dashboard.php:
+   88      }
+   89  
+   90:     $inbound = $this->m->inbound_getAll();
+   91      $this->display('v/dashboard/add',array('inbound'=>$inbound));
+   92    }
+
+/Users/yudu/Google Drive/study/2015 Spring/DBMS/Final Project/mu-DBMS-warehouse1/dev/app/m/dashboard_m.php:
+   30    }
+   31  
+   32:   function inbound_getAll(){
+   33        $res = $this->db->query("select * from Inbound order by Inbound_id desc");
+   34        return $res;
+
+2 matches across 2 files
+
+
+Searching 859 files for "actionAdd"
+
+/Users/yudu/Google Drive/study/2015 Spring/DBMS/Final Project/mu-DBMS-warehouse1/dev/app/c/__construct.php:
+  204    // }
+  205  
+  206:   function actionAdd(){ 
+  207      $submitName = $this->addParams['submitName'];
+  208      $required = $this->addParams['required'];
+
+/Users/yudu/Google Drive/study/2015 Spring/DBMS/Final Project/mu-DBMS-warehouse1/dev/app/c/admin.php:
+   26        'view'=>'v/admin/admin_add'  //视图
+   27      );
+   28:     $this->actionAdd();
+   29    }
+   30  
+
+/Users/yudu/Google Drive/study/2015 Spring/DBMS/Final Project/mu-DBMS-warehouse1/dev/app/c/customer.php:
+   42        'view'=>'v/customer/customer_add'  //视图
+   43      );
+   44:     $this->actionAdd();
+   45    }
+   46  
+
+/Users/yudu/Google Drive/study/2015 Spring/DBMS/Final Project/mu-DBMS-warehouse1/dev/app/c/item.php:
+   94        'view'=>'v/item/item_add'  //视图
+   95      );
+   96:     $this->actionAdd();
+   97    }
+   98  
+
+/Users/yudu/Google Drive/study/2015 Spring/DBMS/Final Project/mu-DBMS-warehouse1/dev/app/c/warehouse.php:
+   40        'view'=>'v/warehouse/add'  //视图
+   41      );
+   42:     $this->actionAdd();
+   43    }
+   44  
+
+5 matches across 5 files

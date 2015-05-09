@@ -94,21 +94,35 @@ class dashboard extends base{
   /*出仓*/
   function out(){
     if(isset($_POST['outBound'])){
+      $post = $_POST;
       try {
+        //Outbound
+        $newBound = false;
         $errArr = array();
-        $conf = array('Customer_Cid'=>'required','Approver_id'=>'required','Consignee'=>'required');
-        $err = validate($conf);
-        if ( $err !== TRUE) {
+        if($post['OutboundStyle']==2){  //创建Outbound
+          $newBound = true;
+          $conf = array('Approver_id'=>'required','Customer_Cid'=>'required','Consignee'=>'required');
+          $err = validate($conf);
+          if ( $err !== TRUE) {
             $errArr = $err;
             throw new Exception('Please fill out all imformation needed for Outbound',1);
-        }
+          }
 
-        //出库详情参数检验
-        $conf_detail = array('Amount'=>'required');
-        $err_detail = validate($conf_detail);
-        if( $err_detail !== TRUE ){
-          $errArr = $err_detail;
-          throw new Exception('Please fill out all detailed information for outbound.',1);
+          //出库详情参数检验
+          $conf_detail = array('Amount'=>'required','unitprice'=>'required');
+          $err_detail = validate($conf_detail);
+          if( $err_detail === TRUE )
+          {
+            $outBoundId=$this->m->outbound_add($post);
+          }
+          else{
+            $errArr = $err_detail;
+            throw new Exception('Please fill out all detailed information for outbound.',1);
+          }
+        }
+        else if($post['OutboundStyle']==1){
+          $outBoundId=$post['Outbound_id_old'];
+          //throw new Exception($outBoundId,2);
         }
         
         //拿到入库详情数据
@@ -122,7 +136,7 @@ class dashboard extends base{
         }
 
         //添加出库单
-        $outBoundId = $this->m->outbound_add();
+        //$outBoundId = $this->m->outbound_add();
 
         //添加出库详情数据
         if(!empty($outBoundId)){
@@ -141,6 +155,7 @@ class dashboard extends base{
         }
 
 
+
       } catch (Exception $e) {
         if($e->getCode() == 1){
           $this->err = $errArr;
@@ -153,26 +168,65 @@ class dashboard extends base{
     }
 
     $stock_details = $this->m->Stocks_getAll();
-    $this->display('v/dashboard/out',array('stock'=>$stock_details));
+    $outbound = $this->m->Outbound_getAll();
+    $this->display('v/dashboard/out',array('stock'=>$stock_details,'outbound'=>$outbound));
   }
 
   function inner_trasition(){
     if(isset($_POST['innert_trasition_add'])){
       $post = $_POST;
       try {
+          $newBound=false;
           $errArr = array();
-          $conf = array('I_T_Wid'=>'required','Amount'=>'required','Items_Iname'=>'required','Operate'=>'required','Stockid'=>'required');
-          $err = validate($conf);
-          if ( $err !== TRUE ) {
-              $errArr = $err;
-              throw new Exception('Please fill out all information need for Inner Trasition!',1);
-          }else{
-              $inner = $this->m->inner_trasition_add();
-              if($inner){
-                throw new Exception('Inner Trasition Succeed!',2);
-              }else{
-                throw new Exception('Inner Trasition Failed!',2);
-              }
+          if($post['Operate']=='I'){
+            $conf = array('I_T_Wid'=>'required','Amount'=>'required','Items_Iname'=>'required','Operate'=>'required');//,'Stockid'=>'required');
+            $err = validate($conf);
+            if ( $err !== TRUE) {
+                $errArr = $err;
+                throw new Exception('Please fill out all information needed for Inner Transition!',1);
+            }
+            $stockParams = array('Stocks_Wid'=>$_POST['I_T_Wid'],'Stocks_Iname'=>$_POST['Items_Iname'],'Stockamount'=>$_POST['Amount'],'Stockarea'=>$_POST['Stockarea']);
+            $conf_Stocks = array('Stocks_Wid'=>'required','Stocks_Iname'=>'required','Stockamount'=>'required','Stockarea'=>'required');
+            $err_Stocks = validate($conf_Stocks,$stockParams);
+            if ( $err_Stocks !== TRUE) {
+              $errArr = $err_Stocks;
+              throw new Exception('Please fill out all informations needed for Stock',1);}
+            $stockid = $this->m->stock_add($stockParams);
+            if(!$stockid){ throw new Exception('Failed to create a Stock!',2);} 
+            $post['Stockid'] = $stockid;
+            //throw new Exception(intval($stockid),1);
+            //$in = array('I_T_Wid'=>intval($_POST['I_T_Wid']),'Amount'=>$_POST['Amount'],'Items_Iname'=>$_POST['Items_Iname'],'Stockid'=intval($stockid),'Operate'=>'I');
+            $inner = $this->m->inner_trasition_add($post);
+           
+          }else if($post['Operate']=='O') {
+            $conf = array('I_T_Wid'=>'required','Amount'=>'required','Items_Iname'=>'required','Operate'=>'required','Stockid'=>'required');
+            $err = validate($conf);
+            //out_innertrasition
+            //$this->m->table = 'Stocks';
+            //$this->m->key = 'Stockid';
+            //$stock = $this->m->get_one($_POST['innertransition_out']);
+            //if(!$stock){throw new Exception('Please fill out all detailed information for Outbound',2);}
+            //$post['Stockid'] = $stock['Stockid'];
+            //$post['I_T_Wid']= $stock['Stocks_Wid'];
+            //$post['Items_Iname']=$stock['Stocks_Iname'];
+            if ( $err === TRUE) {
+                $inner = $this->m->inner_trasition_add();
+            }
+            else
+            {
+              $errArr=$err;
+              throw new Exception('Please fill out all information for move out.');
+            }
+            //$out = array('I_T_Wid'=>intval($stock['Stocks_Wid']),'Amount'=>$_POST['Amount'],'Items_Iname'=>$stock['Stocks_Iname'],'Stockid'=intval($stock['Stockid']),'Operate'=>'O');
+            
+          }
+
+
+          //$inner = $this->m->inner_trasition_add($post);
+          if($inner){
+            throw new Exception('Inner Trasition Succeed!',2);
+           }else{
+            throw new Exception('Inner Trasition Failed!',2);
           }
       } catch (Exception $e){
         if($e->getCode() == 1){
@@ -182,8 +236,8 @@ class dashboard extends base{
         }
       }
     }
-
-    $this->display('v/dashboard/inner_trasition');
+    $stock_details = $this->m->Stocks_getAll();
+    $this->display('v/dashboard/inner_trasition',array('stock'=>$stock_details));
   }
 
 }

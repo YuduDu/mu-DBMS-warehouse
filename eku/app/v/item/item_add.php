@@ -4,7 +4,7 @@
     <input type="text" name="Iname" class="form-control">
   </div>
   <div class="form-group">
-    <label>Item Category</label>
+    <label>Item Class</label>
     <input type="text" name="ICname" class="form-control">
   </div>
   <div class="form-group">
