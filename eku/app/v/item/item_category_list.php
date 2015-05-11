@@ -2,7 +2,7 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-  			<th>Item Name</th>
+  			<th>Item Category</th>
   			<th>Item Type</th>
   			<th>Item List</th>
         <th>Edit</th>

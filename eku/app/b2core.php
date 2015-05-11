@@ -161,7 +161,7 @@ function show_404($where) //显示 404 错误
 class c { 
   function index()
   {
-    echo "fuck the framework";
+    //echo "fuck the framework";
     //echo seg(1);
     //var_dump(BASE);
   }
